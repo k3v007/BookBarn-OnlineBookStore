@@ -2,7 +2,7 @@
 
 {% block head_block %}
 
-    <!-- This is the working scrip which allow only numbers
+    <!-- This is the working script which allow only numbers
     Find a suitable place to keep it -->    
     <script>
         function onlyNumber(id){ 
@@ -17,11 +17,15 @@
 
 <form id="user_form" method="post" action="{% url 'signupView' %}">
     {% csrf_token %}
+
     <input type="radio" name="address" value="dft_add">Default Address<br>
     <span style="white-space: pre-line">{{ address }}</span> 
+
     <br> <br>
+
     <input type="radio" name="address" value="new_add">New Address<br>
     {{ address_form.as_p}}    
+    
     <br><br>
     Payment Type:
     <br>
