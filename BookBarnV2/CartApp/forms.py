@@ -19,7 +19,7 @@ class CheckoutForm(forms.Form):
 class NewAddressForm(forms.Form):                       
     
     address1 = forms.CharField(
-            required=True, 
+            required=False, 
             label='', 
             max_length=50, 
             widget=forms.TextInput(
@@ -45,7 +45,7 @@ class NewAddressForm(forms.Form):
             )
 
     city = forms.CharField(
-            required=True, 
+            required=False, 
             label='', 
             max_length=50, 
             widget=forms.TextInput(
@@ -58,7 +58,7 @@ class NewAddressForm(forms.Form):
             )
 
     state = forms.CharField(
-            required=True, 
+            required=False, 
             label='', 
             max_length=50, 
             widget=forms.TextInput(
@@ -71,7 +71,7 @@ class NewAddressForm(forms.Form):
             )
 
     pinCode = forms.CharField(
-            required=True, 
+            required=False, 
             label='', 
             min_length=6, 
             max_length=6, 
@@ -86,7 +86,7 @@ class NewAddressForm(forms.Form):
             )
 
     phoneNumber = forms.CharField(
-            required=True, 
+            required=False, 
             label='', 
             min_length=10, 
             max_length=10, 
@@ -106,7 +106,7 @@ class NewAddressForm(forms.Form):
 class CardForm(forms.Form):
 
     name = forms.CharField(
-            required=True, 
+            required=False, 
             max_length=50,
             label='', 
             widget=forms.TextInput(
@@ -121,7 +121,7 @@ class CardForm(forms.Form):
         
     cvv = forms.CharField(
             label='', 
-            required=True, 
+            required=False, 
             min_length=3, 
             max_length=3, 
             widget=forms.PasswordInput(
@@ -135,7 +135,7 @@ class CardForm(forms.Form):
             )
     
     cardNumber = forms.CharField(
-            required=True, 
+            required=False, 
             label='', 
             min_length=16, 
             max_length=16, 
@@ -150,7 +150,7 @@ class CardForm(forms.Form):
             ) 
     
     date_mm = forms.CharField(
-            required=True, 
+            required=False, 
             label='', 
             min_length=2, 
             max_length=2, 
@@ -165,7 +165,7 @@ class CardForm(forms.Form):
             )
 
     date_yyyy = forms.CharField(
-            required=True, 
+            required=False, 
             label='', 
             min_length=4, 
             max_length=4, 
