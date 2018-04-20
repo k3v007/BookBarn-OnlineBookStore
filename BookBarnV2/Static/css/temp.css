@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
+
+html, body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    color: white;
+}
+
+body {
+    background: #f3f7f8;
+    margin-top: 100px;
+    background: #667db6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+*:focus {
+    outline: none;
+}
+
+
+
+/*Navbar Styles*/
+
+.navbar {
+
+    /*background: linear-gradient(204deg, #233237, #18121E);*/
+    background: rgba(255, 255, 255, 1);
+    -webkit-box-shadow: 0px 10px 68px -24px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 68px -24px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 68px -24px rgba(0,0,0,0.75);
+}
+
+.navbar-brand {
+    color: #333333;
+}
+
+.navbar-brand:hover {
+    color: #333333;
+}
+
+.nav-link {
+    color: #333333;
+}
+
+.nav-link:hover {
+    color: #333333;
+}
+
+
+nav form input {
+    max-width: 240px;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 25px;
+    margin: 0px 7px;
+}
+
+nav form button {
+    border: none;
+    border-radius: 20px;
+    background: #ef744a;
+    padding: 5px 25px;
+    margin: 0 7px;
+    color: #ffffff;
+    box-shadow: 0px 18px 13px -6px rgba(0, 0, 0,0.1);
+    outline: none;
+
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+}
+
+nav form button:hover {
+    box-shadow: 0px 25px 18px -6px rgba(0, 0, 0,0.2);
+    background-color: #ff845a;
+    color: #fff;    
+}
+
+nav > li > a {padding-top:5px !important; padding-bottom:5px !important;}
+nav.navbar { min-height:35px !important; 
+padding: 0 20px;}
+
+
+
+
+/*
+
+
+
+#loginArea{
+    padding: 25px;
+    margin: 20px 0;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 2%;
+    box-shadow: 0px 3px 20px 2px rgba(0, 0, 0, 0.2);
+}
+
+#loginArea input {
+    width: 100%;
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #eeeeee;
+    outline: none;
+}
+
+#loginArea button {
+    margin: 20px 3px 0px 3px;
+    border: none;
+    background: -webkit-linear-gradient(62deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
+    background: -o-linear-gradient(62deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
+    background: linear-gradient(152deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
+    padding: 10px;
+    width: 45%;
+    border-radius: 7px;
+    color: #ffffff;
+    box-shadow: 0px 18px 13px -6px rgba(0, 0, 0,0.1);
+    outline: none;
+
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+}
+
+#loginArea button:hover {
+    box-shadow: 0px 25px 18px -6px rgba(0, 0, 0,0.2);
+    background-color: #63b2fc;
+    color: #fff;
+}
+
+
+#signupArea{
+    margin: 20px 0;
+    padding: 25px;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 2%;
+    box-shadow: 0px 3px 20px 2px rgba(0, 0, 0, 0.2);}
+
+#signupArea button {
+    margin: 20px 3px 0px 3px;
+    border: none;
+    background: -webkit-linear-gradient(62deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
+    background: -o-linear-gradient(62deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
+    background: linear-gradient(152deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
+    padding: 10px;
+    width: 45%;
+    border-radius: 7px;
+    color: #ffffff;
+    box-shadow: 0px 18px 13px -6px rgba(0, 0, 0,0.1);
+    outline: none;
+
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+}
+
+#signupArea button:hover {
+    box-shadow: 0px 25px 18px -6px rgba(0, 0, 0,0.2);
+    background-color: #63b2fc;
+    color: #fff;
+}
+
+#signupArea button a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#signupArea button a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
+
+
+#profileArea {
+    
+}
+
+
+
+#categoriesArea {
+    margin: 20px 0;
+    padding: 25px;
+    margin-top: 0;
+    background-color: #ffffff;
+    border-radius: 2%;
+    box-shadow: 0px 3px 20px 2px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+#categoriesArea button {
+    margin: 15px 3px 0px 3px;
+    border: none;
+    background: -webkit-linear-gradient(62deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
+    background: -o-linear-gradient(62deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
+    background: linear-gradient(152deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
+    padding: 10px;
+    width: 45%;
+    border-radius: 7px;
+    color: #ffffff;
+    box-shadow: 0px 18px 13px -6px rgba(0, 0, 0,0.1);
+    outline: none;
+
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+}
+
+#categoriesArea button:hover {
+    box-shadow: 0px 25px 18px -6px rgba(0, 0, 0,0.2);
+    background-color: #63b2fc;
+    color: #fff;
+}
+
+#categoriesArea button a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#categoriesArea button a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#categoriesArea li {
+    text-align: left;
+    padding-left: 10px;
+    margin-left: 20px;
+}
+
+
+
+
+.bookCover {
+    height: auto;
+    width: 120px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    float: left;
+    margin: 0 21px; 
+}
+
+.bookCover>a>img {
+    min-width: 100%;
+    min-height: 100%;
+    border-radius: 2px;
+    -webkit-box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.6);
+    -moz-box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.6);
+    box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.6);
+}
+
+
+
+
+.bookDetails h1 {
+    margin: 12px;
+    display: inline-block;
+}
+
+.bookDetails h3 {
+    display: inline-block;
+    padding: 10px;
+}
+
+.bookDetails h3 {
+    display: inline-block;
+    padding: 10px;
+    
+}
+
+.bookData {
+    border: solid 2px gray;
+    margin: 2px 50px;
+    padding: 5px 30px;
+}
+
+
+.coverImage {
+    width: 25%;
+    height: 25%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 0 21px; 
+    display: inline-block;
+}
+
+.coverImage>a>img {
+
+    min-width: 100%;
+    min-height: 100%;
+    border-radius: 2px;
+    -webkit-box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.6);
+    -moz-box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.6);
+    box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.6);
+}
+
+
+.desc coverImg {
+    width: 20%;
+    height: 20%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 0 21px; 
+    display: inline-block;
+    float: left;
+}*/

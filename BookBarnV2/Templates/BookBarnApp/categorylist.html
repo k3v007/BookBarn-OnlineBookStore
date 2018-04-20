@@ -1,0 +1,26 @@
+{% extends "BookBarnApp/base.html" %}
+    <!-- Change link above -->
+
+{% block head_block %}
+
+{% endblock %}
+
+{% block body_block %}
+
+
+<div class="container">
+    <div class="row">
+    	<div class="col-4">
+    		<div class="categoryArea">
+    			<ul>
+			        {% for category in categories %}
+			         <li> <a href="{% url 'categoryView' gid=category.gid %}">{{ category.gName }}</a></li>
+			        {% endfor %}
+			    </ul>
+    		</div>
+    	</div>
+    </div>    
+</div>
+
+    
+{% endblock %}

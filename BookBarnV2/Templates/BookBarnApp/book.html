@@ -1,0 +1,102 @@
+{% extends "BookBarnApp/base.html" %}
+    <!-- Change link above -->
+
+{% block head_block %}
+
+{% endblock %}
+
+{% block body_block %}
+
+
+<div class="container">
+    
+    <div class="row">
+        <div class="col-4">
+            <div class="bookDetailsLeft">
+                <div class="row">
+                    <div class="bookCoverMain">
+                        <img class="img-fluid" src="{{ book.coverImage }}" alt="Cover">
+                    </div>
+                </div>
+                <div class="row">
+                    <table class="table table-striped">
+                      <tbody>
+                        <tr class="bg-success">
+                            <th scope="row">Rating:</th>
+                            <td>
+                                <div class="star-ratings-sprite">
+                                    <span style="width:25%" class="star-ratings-sprite-rating"></span>
+                                </div>
+                            </td>                            
+                        </tr>
+                        <tr class="table-primary">
+                            <th scope="row">Price:</th>
+                            <td>&#8377; {{ book.price }}</td>                    
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+                
+                <div class="row">                    
+                    <span class="storefront_add_to_cart">
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url 'CartApp:add_to_cart' book.isbn %}">
+                        {% else %}
+                            <a href="{% url 'loginView' %}">
+                        {% endif %}
+                            [Add to Cart]
+                        </a>
+                    </span>                    
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+
+            <div class="bookDetailsRight">
+                <div class="row">
+                    <h3>{{ book.bookTitle }}</h3>
+                    <hr>
+                </div>
+                <div class="row">
+                    <h4>Description: </h4>
+                </div>
+                <div class="row">
+                    <!-- Use this pre-line styling for printing '\n' in html file -->
+                    <p><span style="white-space: pre-line">{{ book.description }}</span></p>
+                </div>
+                <div class="row">
+                    <table class="table table-striped">
+                      <tbody>
+                        <tr>
+                          <th scope="row">ISBN:</th>
+                          <td >{{ book.isbn }}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Language:</th>
+                          <td>{{ book.language }}</td>                    
+                        </tr>
+                        <tr>
+                          <th scope="row">No. of Pages:</th>
+                          <td>{{ book.pageCount }}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Published On:</th>
+                          <td>{{ book.publishedDate }}</td>
+                        </tr>            
+                      </tbody>
+                    </table>        
+                </div>
+            </div>            
+        </div>
+    </div>
+
+</div>
+        
+
+
+        
+
+
+    
+{% endblock %}

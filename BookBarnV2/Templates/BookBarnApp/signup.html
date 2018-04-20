@@ -1,0 +1,39 @@
+{% extends 'BookBarnApp/base.html' %}
+
+
+{% block head_block %}
+
+{% endblock %}
+
+
+{% block body_block %}
+
+
+    <div class="container">
+        {% if registered %}
+        <div class="row">
+            <div class="col">
+                <strong>Thank you for registering!</strong>
+            <a href="{% url 'homeView' %}">Return to the homepage.</a><br />
+            </div>
+        </div>
+        {% else %}
+        <div class="row">
+            <div class="col">
+                <h4>Register here!</h4><br />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <form id="user_form" method="post" action="{% url 'signupView' %}">
+                    {% csrf_token %}
+                    {{ user_form.as_p }}
+                    {{ profile_form.as_p }}
+                    <input type="submit" name="submit" value="Register" />
+                </form>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+{% endblock %}

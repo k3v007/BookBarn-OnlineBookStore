@@ -1,0 +1,211 @@
+{% extends "BookBarnApp/base.html" %}
+
+
+{% block head_block %}
+
+{% endblock %}
+
+
+{% block body_block %}
+    
+
+
+     
+
+
+<div class="container">
+    <div class="row">
+
+        
+        <div class="col">
+            <div class="categoryArea">
+                <h5>Book Categories</h5> 
+                <ul>
+                    <li><a href="{% url 'categoryView' gid='G500000002' %}">Fiction</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000000' %}">Classics</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000006' %}">Literature</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000009' %}">Historical</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000010' %}">Cultural</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000016' %}">European Literature</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000012' %}">Non-Fiction</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000011' %}">Fantasy</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000001' %}">Plays</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000014' %}">Philosophy</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000007' %}">Young Adult</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000003' %}">Romance</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000005' %}">Drama</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000004' %}">Academic</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000019' %}">History</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000024' %}">Novels</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000079' %}">Contemporary</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000040' %}">Science Fiction</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000008' %}">Poetry</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000059' %}">Mystery</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000041' %}">Childrens</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000020' %}">Religion</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000015' %}">Humor</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000029' %}">Politics</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000036' %}">Adventure</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000018' %}">Biography</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000055' %}">Horror</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000035' %}">Autobiography</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000039' %}">Short Stories</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000053' %}">Gothic</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000051' %}">Adult</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000025' %}">Writing</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000033' %}">Adult Fiction</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000013' %}">Science</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000083' %}">Thriller</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000071' %}">Paranormal</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000057' %}">Abandoned</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000060' %}">Literary Fiction</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000022' %}">Spirituality</a></li>
+                    <li><a href="{% url 'categoryView' gid='G500000037' %}">War</a></li>
+                </ul>
+                <a href="{% url 'categoryListView' %}"><button class="btn btn-success">More</button></a>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-8">
+            
+            <div class="row">
+                <div class="bookShelf">
+                    <div class="row">
+                    <p>Popular</p> <hr>
+                    </div>
+
+                    <div class="row">
+                        {% for book in trending %}
+                        <div class="col">
+                            <div class="bookCover">
+                                <a href="{{ book.get_absolute_url }}"><img src="{{ book.coverImage }}" alt="Book Cover" class="img-fluid"></a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="bookShelf">
+                    <div class="row">
+                        <p>Popular in Sci-Fiction</p>
+                    </div>
+
+                    <div class="row">
+                        {% for book in scific %}
+                        <div class="col">
+                            <div class="bookCover">
+                                <a href="{{ book.get_absolute_url }}"><img src="{{ book.coverImage }}" alt="Book Cover" class="img-fluid"></a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <div class="bookShelf">
+                    <div class="row">
+                        <p>Popular in Fiction</p> 
+                    </div>
+
+                    <div class="row">
+                        {% for book in fiction %}
+                        <div class="col">
+                            <div class="bookCover">
+                                <a href="{{ book.get_absolute_url }}"><img src="{{ book.coverImage }}" alt="Book Cover" class="img-fluid"></a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="row">
+                <div class="bookShelf">
+                    <div class="row">
+                        <p>Popular in Romance</p>
+                    </div>
+
+                    <div class="row">
+                        {% for book in romance %}
+                        <div class="col">
+                            <div class="bookCover">
+                                <a href="{{ book.get_absolute_url }}"><img src="{{ book.coverImage }}" alt="Book Cover" class="img-fluid"></a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="bookShelf">
+                    <div class="row">
+                        <p>Popular in Thriller</p>
+                    </div>
+
+                    <div class="row">
+                        {% for book in thriller %}
+                        <div class="col">
+                            <div class="bookCover">
+                                <a href="{{ book.get_absolute_url }}"><img src="{{ book.coverImage }}" alt="Book Cover" class="img-fluid"></a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="bookShelf">
+                    <div class="row">
+                        <p>Popular in Drama</p>
+                    </div>
+
+                    <div class="row">
+                        {% for book in drama %}
+                        <div class="col">
+                            <div class="bookCover">
+                                <a href="{{ book.get_absolute_url }}"><img src="{{ book.coverImage }}" alt="Book Cover" class="img-fluid"></a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="bookShelf">
+                    <div class="row">
+                        <p>Popular in Mystery</p>
+                    </div>
+
+                    <div class="row">
+                        {% for book in mystery %}
+                        <div class="col">
+                            <div class="bookCover">
+                                <a href="{{ book.get_absolute_url }}"><img src="{{ book.coverImage }}" alt="Book Cover" class="img-fluid"></a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  <!-- End of row level 1 -->
+
+
+</div>
+    
+
+
+    
+{% endblock %}

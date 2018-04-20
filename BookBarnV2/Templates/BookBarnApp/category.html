@@ -1,0 +1,95 @@
+{% extends "BookBarnApp/base.html" %}
+    <!-- Change link above -->
+
+{% block body_block %}
+    
+
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-4">
+                <div class="categoryArea">
+                        <h5>Book Categories</h5> 
+                            <ul>
+                                <li><a href="{% url 'categoryView' gid='G500000002' %}">Fiction</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000000' %}">Classics</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000006' %}">Literature</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000009' %}">Historical</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000010' %}">Cultural</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000016' %}">European Literature</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000012' %}">Non-Fiction</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000011' %}">Fantasy</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000001' %}">Plays</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000014' %}">Philosophy</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000007' %}">Young Adult</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000003' %}">Romance</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000005' %}">Drama</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000004' %}">Academic</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000019' %}">History</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000024' %}">Novels</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000079' %}">Contemporary</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000040' %}">Science Fiction</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000008' %}">Poetry</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000059' %}">Mystery</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000041' %}">Childrens</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000020' %}">Religion</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000015' %}">Humor</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000029' %}">Politics</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000036' %}">Adventure</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000018' %}">Biography</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000055' %}">Horror</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000035' %}">Autobiography</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000039' %}">Short Stories</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000053' %}">Gothic</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000051' %}">Adult</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000025' %}">Writing</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000033' %}">Adult Fiction</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000013' %}">Science</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000083' %}">Thriller</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000071' %}">Paranormal</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000057' %}">Abandoned</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000060' %}">Literary Fiction</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000022' %}">Spirituality</a></li>
+                                <li><a href="{% url 'categoryView' gid='G500000037' %}">War</a></li>
+                            </ul>
+                            <a href="{% url 'categoryListView' %}"><button class="btn btn-success">More</button></a>
+                    </div>
+            </div>
+
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <div class="searchHead">                      
+                            <span>Showing you {{ books|length }} book{{ books|pluralize }}</span>
+                        </div>
+                    </div>
+                </div>
+                
+
+                {% for book in books %}
+                <div class="row">
+                    <div class="searchResultShelf">
+                        <div class="col-4">
+                            <img src="{{ book.coverImage }}" alt="Book Cover" class="img-fluid" height="100" width="100">
+                        </div>
+                        <div class="col">
+                            <ul>
+                                        <li><strong>Title : {{ book.bookTitle }}</strong></li>
+                                        <li>ISBN : {{ book.isbn }}</li>
+                                        <li>GoodReads Rating : {{ book.rating }}</li>
+                                        <li>Language : {{ book.language }}</li>
+                                        <li>Price : &#8377; {{book.price}}</li>
+                            </ul> 
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+{% endblock %}

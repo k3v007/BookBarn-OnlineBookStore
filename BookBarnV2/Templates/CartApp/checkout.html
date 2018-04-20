@@ -1,0 +1,36 @@
+{% extends 'BookBarnApp/base.html' %}
+
+{% block head_block %}
+
+    <!-- This is the working scrip which allow only numbers
+    Find a suitable place to keep it -->    
+    <script>
+        function onlyNumber(id){ 
+            var DataVal = document.getElementById(id).value;
+            document.getElementById(id).value = DataVal.replace(/[^0-9]/g,'');
+        }
+    </script>
+
+{% endblock %}
+
+{% block body_block %}
+
+<form id="user_form" method="post" action="{% url 'signupView' %}">
+    {% csrf_token %}
+    <input type="radio" name="address" value="dft_add">Default Address<br>
+    <span style="white-space: pre-line">{{ address }}</span> 
+    <br> <br>
+    <input type="radio" name="address" value="new_add">New Address<br>
+    {{ address_form.as_p}}    
+    <br><br>
+    Payment Type:
+    <br>
+    <input type="radio" name="payment" value="dft_pay">Cash on Delivery<br>
+    <input type="radio" name="payment" value="dft_pay">Credit Card<br>
+    {{ card_form.as_p}}
+    
+
+</form>
+
+
+{% endblock %}

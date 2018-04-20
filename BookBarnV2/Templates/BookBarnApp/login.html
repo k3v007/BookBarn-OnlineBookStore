@@ -1,0 +1,27 @@
+{% extends 'BookBarnApp/base.html' %}
+
+{% block head_block %}
+
+{% endblock %}
+
+{% block body_block %}
+
+
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<h1>Login to BookBarn</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<form id="login_form" method="post" action="{% url 'loginView' %}">
+				{% csrf_token %}
+				{{ form }}
+				<input type="submit" class="btn btn-success" value="submit" />
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

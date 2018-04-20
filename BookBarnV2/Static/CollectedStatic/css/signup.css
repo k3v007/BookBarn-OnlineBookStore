@@ -1,0 +1,142 @@
+html, body{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+	padding-top: 70px;
+	/*background-color: #6699cc;*/
+	background: -webkit-linear-gradient(62deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
+	background: -o-linear-gradient(62deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
+	background: linear-gradient(152deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+
+
+
+*:focus {
+    outline: none;
+}
+
+
+
+/*Navbar Styles*/
+
+.navbar {
+
+	background: linear-gradient(204deg, #233237, #18121E);
+}
+
+.navbar-brand {
+	color: #ffffff;
+}
+
+.navbar-brand:hover {
+	color: #ffffff;
+}
+
+.nav-link {
+	color: #ffffff;
+}
+
+.nav-link:hover {
+	color: #ffffff;
+}
+
+nav form input {
+	max-width: 240px;
+	border: none;
+	border-radius: 20px;
+	padding: 5px 25px;
+	margin: 0px 7px;
+}
+
+nav form button {
+	border: none;
+	border-radius: 20px;
+	background: #ef744a;
+	padding: 5px 25px;
+	margin: 0 7px;
+	color: #ffffff;
+	box-shadow: 0px 18px 13px -6px rgba(0, 0, 0,0.1);
+	outline: none;
+
+	transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	-ms-transition: all 0.4s;
+	-o-transition: all 0.4s;
+}
+
+nav form button:hover {
+	box-shadow: 0px 25px 18px -6px rgba(0, 0, 0,0.2);
+	background-color: #ff845a;
+	color: #fff;	
+}
+
+.signupForm {
+	padding: 30px;
+	margin: 70 auto;
+	width: 420px;
+	text-align: center;
+	background-color: #ffffff;
+	border-radius: 2%;
+	box-shadow: 0px 18px 13px -6px rgba(0, 0, 0,0.2);
+}
+
+.signupForm form input {
+	width: 100%;
+	margin: 5px;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	background-color: #eeeeee;
+}
+
+.signupForm form button {
+	margin-top: 30px;
+	border: none;
+    background: #25D366;
+    padding: 10px;
+	width: 100%;
+	border-radius: 7px;
+	color: #ffffff;
+	box-shadow: 0px 18px 13px -6px rgba(0, 0, 0,0.2);
+
+	transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	-ms-transition: all 0.4s;
+	-o-transition: all 0.4s;
+}
+
+.signupForm form button:hover {
+	box-shadow: 0px 25px 18px -6px rgba(0, 0, 0,0.2);
+	background-color: #88ff88;
+	color: #fff;
+}
+
+/*Cancel Button*/
+
+.signupForm a button {
+	border: none;
+    background: #008eff;
+    padding: 10px;
+	width: 100%;
+	border-radius: 7px;
+	color: #ffffff;
+	box-shadow: 0px 18px 13px -6px rgba(0, 0, 0,0.2);
+
+	transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	-ms-transition: all 0.4s;
+	-o-transition: all 0.4s;
+}
+
+.signupForm a button:hover {
+	box-shadow: 0px 25px 18px -6px rgba(0, 0, 0,0.2);
+	background-color: #63b2fc;
+	color: #fff;
+}

@@ -1,0 +1,47 @@
+{% extends 'BookBarnApp/base.html' %}
+
+{% block head_block %}
+
+{% endblock %}
+
+{% block body_block %}
+    
+    <div class="container">
+        <div class="row">
+            <div class="col" style="max-width: 850px;">
+                {%if request.GET.q%}
+                <div class="searchHead">
+                    <h4>Searched for: "<strong>{{ request.GET.q }}</strong>"</h4>
+                    <hr>
+                </div>
+                
+                {% endif %}
+            </div>
+        </div>
+        
+        {% for book in object_list %}
+
+        <div class="searchResultShelf">
+            <div class="row">
+                <div class="col-4">
+                    <a href="{{ book.get_absolute_url }}"><img src="{{ book.coverImage }}" alt="Book Cover" class="img-fluid" height="100" width="100"></a>
+                    
+                </div>
+                <div class="col">
+                    <ul>
+                        <li><strong>Title : {{ book.bookTitle }}</strong></li>
+                        <li>Authors: {% for author in book.authors.all %} {{ author.get_full_name }} {% endfor %}</li>
+                        <li>GoodReads Rating : {{ book.rating }}</li>
+                        <li>Language : {{ book.language }}</li>
+                        <li>Price : &#8377; {{book.price}}</li>
+                    </ul> 
+                </div>
+            </div> 
+        </div>
+         
+        
+        {% endfor %}
+        
+    </div>
+
+{% endblock %}

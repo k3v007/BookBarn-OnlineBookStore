@@ -1,0 +1,42 @@
+	Genres		 Counts	
+
+| Fiction             |      683 |	G500000002
+| Classics            |      651 |	G500000000
+| Literature          |      363 |	G500000006
+| Historical          |      231 |	G500000009
+| Cultural            |      194 |	G500000010
+| European Literature |      186 |	G500000016
+| Non-Fiction         |      184 |	G500000012
+| Fantasy             |      181 |	G500000011
+| Plays               |      138 |	G500000001
+| Philosophy          |      136 |	G500000014
+| Young Adult         |      134 |	G500000007
+| Romance             |      116 |	G500000003
+| Drama               |      114 |	G500000005
+| Academic            |      108 |	G500000004
+| History             |       88 |	G500000019
+| Novels              |       81 |	G500000024
+| Contemporary        |       78 |	G500000079
+| Science Fiction     |       76 |	G500000040
+| Poetry              |       71 |	G500000008
+| Mystery             |       56 |	G500000059
+| Childrens           |       56 |	G500000041
+| Religion            |       56 |	G500000020
+| Humor               |       52 |	G500000015
+| Politics            |       51 |	G500000029
+| Adventure           |       47 |	G500000036
+| Biography           |       45 |	G500000018
+| Horror              |       40 |	G500000055
+| Autobiography       |       35 |	G500000035
+| Short Stories       |       35 |	G500000039
+| Gothic              |       30 |	G500000053
+| Adult               |       30 |	G500000051
+| Writing             |       26 |	G500000025
+| Adult Fiction       |       25 |	G500000033
+| Science             |       23 |	G500000013
+| Thriller            |       23 |	G500000083
+| Paranormal          |       22 |	G500000071
+| Abandoned           |       22 |	G500000057
+| Literary Fiction    |       22 |	G500000060
+| Spirituality        |       22 |	G500000022
+| War                 |       21 |	G500000037
