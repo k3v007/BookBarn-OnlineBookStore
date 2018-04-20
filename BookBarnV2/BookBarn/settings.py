@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'BookBarnApp',
     'SearchApp',
     'CartApp',
+    'ProfileApp',
 ]
 
 MIDDLEWARE = [

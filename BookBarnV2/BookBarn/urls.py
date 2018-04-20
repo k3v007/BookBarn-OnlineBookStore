@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'', include('BookBarnApp.urls')),
     url(r'', include('SearchApp.urls')),
     url(r'^cart/', include('CartApp.urls')),
+    url(r'^profile/', include('ProfileApp.urls')),
 ]
