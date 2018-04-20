@@ -108,3 +108,6 @@ def checkout(request, cart_id):
         return render(request, 'CartApp/checkout.html', {'address_form':address_form, 'address':default_address, 'card_form':card_form})
     else:
         return redirect('homeView')
+
+def orderPlacedView(request):
+    return render(request, "CartApp/orderplaced.html", {})

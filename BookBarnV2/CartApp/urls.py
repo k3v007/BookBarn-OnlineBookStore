@@ -9,5 +9,6 @@ urlpatterns = [
 	re_path(r'^add/(?P<isbn>\w+)/$', views.add_to_cart, name='add_to_cart'),
 	re_path(r'^remove/(?P<isbn>\w+)/$', views.remove_from_cart, name='remove_from_cart'),
 	re_path(r'^checkout/(?P<cart_id>\d+)/$', views.checkout, name='checkout'),
+	re_path(r'^orderplaced/$', views.orderPlacedView, name='orderPlacedView'),
 	# re_path(r'^update/$', views.cartUpdateView, name='cartUpdateView')
 ]

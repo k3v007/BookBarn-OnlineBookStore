@@ -4,37 +4,55 @@
 
     <!-- This is the working script which allow only numbers
     Find a suitable place to keep it -->    
-    <script>
+    <script type="text/javascript">
         function onlyNumber(id){ 
             var DataVal = document.getElementById(id).value;
             document.getElementById(id).value = DataVal.replace(/[^0-9]/g,'');
         }
     </script>
+    
 
 {% endblock %}
 
 {% block body_block %}
 
-<form id="user_form" method="post" action="{% url 'signupView' %}">
+<form id="user_form" method="post" action="{% url 'CartApp:orderPlacedView' %}">
     {% csrf_token %}
 
-    <input type="radio" name="address" value="dft_add">Default Address<br>
-    <span style="white-space: pre-line">{{ address }}</span> 
+    <input type="radio" name="address" value="dft_add"  class="trigger" data-rel="default_address">Default Address<br>
+    <div class="default_address radio_content">
+        <span style="white-space: pre-line">{{ address }}</span>
+    </div> 
 
-    <br> <br>
+    <br><br>
 
-    <input type="radio" name="address" value="new_add">New Address<br>
-    {{ address_form.as_p}}    
+    <input type="radio" name="address" value="new_add" class="trigger" data-rel="new_address">New Address<br>
+    <div class="new_address radio_content">
+        {{ address_form.as_p}}
+    </div>    
     
     <br><br>
     Payment Type:
+
     <br>
-    <input type="radio" name="payment" value="dft_pay">Cash on Delivery<br>
-    <input type="radio" name="payment" value="dft_pay">Credit Card<br>
-    {{ card_form.as_p}}
+
+    <input type="radio" name="payment" value="dft_pay" class="trigger" data-rel="cash_on_delivery">Cash on Delivery<br>
+    <div class="cash_on_delivery radio_content"></div>
+    <input type="radio" name="payment" value="dft_pay" class="trigger" data-rel="card_details">Credit Card<br>
+    <div class="card_details radio_content">
+        {{ card_form.as_p}}
+    </div>
     
-
+    <input type="submit" name="submit" value="Checkout" />
 </form>
-
+    
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.trigger').click(function() {
+                $('.radio_content').hide();
+                $('.' + $(this).data('rel')).show();
+            });
+        });
+    </script>
 
 {% endblock %}
