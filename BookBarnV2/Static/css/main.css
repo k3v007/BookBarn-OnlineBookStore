@@ -257,6 +257,10 @@ padding: 0 20px;}
   }  
 }
 
-.radio_content {
+/*For checkout forms*/
+.radio_content_1 {
+    display: none;
+}
+.radio_content_2 {
     display: none;
 }

@@ -24,7 +24,7 @@ class NewAddressForm(forms.Form):
             max_length=50, 
             widget=forms.TextInput(
                     attrs={
-                        "class":"form-control", 
+                        "class":"form-control required_field_1", 
                         "placeholder":"Address Line 1", 
                         "id":"id_address1",
                         }
@@ -50,7 +50,7 @@ class NewAddressForm(forms.Form):
             max_length=50, 
             widget=forms.TextInput(
                     attrs={
-                        "class":"form-control", 
+                        "class":"form-control required_field_1", 
                         "placeholder":"City", 
                         "id":"id_city",
                         }
@@ -63,7 +63,7 @@ class NewAddressForm(forms.Form):
             max_length=50, 
             widget=forms.TextInput(
                     attrs={
-                        "class":"form-control", 
+                        "class":"form-control required_field_1", 
                         "placeholder":"State", 
                         "id":"id_state",
                         }
@@ -77,7 +77,7 @@ class NewAddressForm(forms.Form):
             max_length=6, 
             widget=forms.TextInput(
                     attrs={
-                        "class":"form-control", 
+                        "class":"form-control required_field_1", 
                         "placeholder":"PIN Code", 
                         "id":"id_pincode",
                         'oninput': 'onlyNumber(id)'
@@ -92,7 +92,7 @@ class NewAddressForm(forms.Form):
             max_length=10, 
             widget=forms.TextInput(
                     attrs={
-                        "class":"form-control", 
+                        "class":"form-control required_field_1", 
                         "placeholder":"Phone Number", 
                         "id":"id_phoneNumber",
                         'style': 'width:50ch',
@@ -111,7 +111,7 @@ class CardForm(forms.Form):
             label='', 
             widget=forms.TextInput(
                     attrs={
-                        "class":"form-control", 
+                        "class":"form-control required_field_2", 
                         "placeholder":"Name on Card", 
                         "id":"name",
                         "autocomplete":"off",
@@ -126,7 +126,7 @@ class CardForm(forms.Form):
             max_length=3, 
             widget=forms.PasswordInput(
                     attrs={ 
-                        "class":"form-control",
+                        "class":"form-control required_field_2",
                         "placeholder":"CVV", 
                         "id":"cvv",
                         'oninput': 'onlyNumber(id)',
@@ -141,7 +141,7 @@ class CardForm(forms.Form):
             max_length=16, 
             widget=forms.TextInput(
                     attrs={
-                        "class":"form-control", 
+                        "class":"form-control required_field_2", 
                         "placeholder":"Card Number", 
                         "id":"cardNumber",
                         'oninput': 'onlyNumber(id)',
@@ -156,7 +156,7 @@ class CardForm(forms.Form):
             max_length=2, 
             widget=forms.TextInput(
                     attrs={
-                        "class":"form-control", 
+                        "class":"form-control required_field_2", 
                         "placeholder":"MM", 
                         "id":"date_mm",
                         'oninput': 'onlyNumber(id)'
@@ -171,7 +171,7 @@ class CardForm(forms.Form):
             max_length=4, 
             widget=forms.TextInput(
                     attrs={
-                        "class":"form-control", 
+                        "class":"form-control required_field_2", 
                         "placeholder":"YYYY", 
                         "id":"date_yyyy",
                         'oninput': 'onlyNumber(id)'

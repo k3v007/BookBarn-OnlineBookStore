@@ -19,15 +19,13 @@
 <form id="user_form" method="post" action="{% url 'CartApp:orderPlacedView' %}">
     {% csrf_token %}
 
-    <input type="radio" name="address" value="dft_add"  class="trigger" data-rel="default_address" required>Default Address<br>
-    <div class="default_address radio_content">
+    <input type="radio" name="address" value="dft_add"  class="trigger_1" id="radio_default_address" data-rel="default_address" required>Default Address<br>
+    <div class="default_address radio_content_1">
         <span style="white-space: pre-line">{{ address }}</span>
     </div> 
 
-    <br><br>
-
-    <input type="radio" name="address" value="new_add" class="trigger" data-rel="new_address" required>New Address<br>
-    <div class="new_address radio_content">
+    <input type="radio" name="address" value="new_add" class="trigger_1" id="radio_new_address" data-rel="new_address" required>New Address<br>
+    <div class="new_address radio_content_1">
         {{ address_form.as_p}}
     </div>    
     
@@ -36,10 +34,12 @@
 
     <br>
 
-    <input type="radio" name="payment" value="dft_pay" class="trigger" data-rel="cash_on_delivery" required>Cash on Delivery<br>
-    <div class="cash_on_delivery radio_content"></div>
-    <input type="radio" name="payment" value="dft_pay" class="trigger" data-rel="card_details" required>Credit Card<br>
-    <div class="card_details radio_content">
+    <input type="radio" name="payment" value="dft_pay" class="trigger_2" id="radio_cod" data-rel="cash_on_delivery" required>Cash on Delivery<br>
+    <div class="cash_on_delivery radio_content_2"></div>
+
+
+    <input type="radio" name="payment" value="dft_pay" class="trigger_2" id="radio_card" data-rel="card_details" required>Credit Card<br>
+    <div class="card_details radio_content_2">
         {{ card_form.as_p}}
     </div>
     
@@ -51,11 +51,50 @@
     
     <script type="text/javascript">
         $(document).ready(function(){
-            $('.trigger').click(function() {
-                $('.radio_content').hide();
+            $('.trigger_1').click(function() {
+                $('.radio_content_1').hide();
                 $('.' + $(this).data('rel')).show();
             });
         });
+
+        $(document).ready(function(){
+            $('.trigger_2').click(function() {
+                $('.radio_content_2').hide();
+                $('.' + $(this).data('rel')).show();
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        window.onload=function(){
+            var radio_default_address = document.querySelector("#radio_default_address");
+            radio_default_address.addEventListener("click", function(){
+                var fields = document.querySelector(".required_field_1");
+                fields.required = false;
+            });
+
+            var radio_new_address = document.querySelector("#radio_new_address");
+            radio_new_address.addEventListener("click", function(){
+                var fields = document.querySelector(".required_field_1");
+                fields.required = true;
+            });
+
+            var radio_cod = document.querySelector("#radio_cod");
+            radio_cod.addEventListener("click", function(){
+                var fields = document.querySelector(".required_field_2");
+                fields.reuired = false;
+            });
+
+            var radio_card = document.querySelector("#radio_card");
+            radio_card.addEventListener("click", function(){
+                var fields = document.querySelector(".required_field_1");
+                fields.required = true;
+            });
+        }
+
+        
+
     </script>
 
 {% endblock %}
