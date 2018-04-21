@@ -21,55 +21,36 @@
 </head>
 <body>
     
-
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-default navbar-expand-lg fixed-top">
-        
+    <!-- Navbar -->
+    <nav class="fixed-top navBar">
         <!-- Navbar Brand -->
-        <a class="navbar-brand" href="{% url 'homeView' %}"> <strong>BookBarn</strong></a>
+        <a class="navbarBrand" href="{% url 'homeView' %}"> <strong>BookBarn</strong></a>
         
-        <!-- Collapse Button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapsedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
-        </button>
+        <!-- Navbar Links -->
+        <a class="navbarLink" href="{% url 'homeView' %}">Home</a>
+        <a class="navbarLink" href="{% url 'categoryListView' %}">BrowseBooks</a>
 
-        <!-- Collapsible Items -->
-        <div class="collapse navbar-collapse" id="navbarCollapsedContent">
-            <ul class="navbar-nav mr-auto">
+        <!-- Search Form -->
+        <form class="navSearchForm" method="GET" action="{% url 'SearchApp:SearchBookView' %}">
+            <input class="navSearchInput" type="search"  name="q" value="{{ request.GET.q }}" aria-label="Search" placeholder=" Search for Books here." /><button class="btn navSearchButton" type="submit">Search</button>
+        </form>
+        
+        <!-- Login/Signup -->
+        {% if request.user.is_authenticated %}        
+            <a class="navLogoutLink" href="{% url 'logoutView' %}"><button class="navButton">Logout</button></a>
+            <a class="navUserLink" href="{% url 'ProfileApp:profileView' %}"><button class="navButton">{{ request.user.username }}</button></a>
+        {% else %}
+            <a class="navSignupLink" href="{% url 'signupView' %}"><button class="navButton">Signup</button></a>
+            <a class="navLoginLink" href="{% url 'loginView' %}"><button class="navButton">Login</button></a>
+        {% endif %}
 
-                <!-- Home -->
-                <li class="nav-item active">
-                  <a class="nav-link" href="{% url 'homeView' %}">Home<span class="sr-only">(current)</span></a>
-                </li>
+        <!-- Cart Logo -->
+        {% if request.user.is_authenticated %}  
+            <a class="navCartLink" href="{% url 'CartApp:cartHomeView' %}"> <button class="navButton"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button></a>
+        {% endif %}
 
-                <!-- Other Items -->
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'categoryListView' %}">BrowseBooks</a>
-                </li>
+        
 
-                <li class="nav-item">
-                  <form class="form-inline" method="GET" action="{% url 'SearchApp:SearchBookView' %}">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" name="q" value="{{ request.GET.q }}" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                  </form>
-                </li>
-
-            </ul>
-
-            {% if request.user.is_authenticated %}  
-            <a class="nav-link" href="{% url 'CartApp:cartHomeView' %}"> <button class="btn btn-info"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button></a>
-            {% else %}
-            <a class="nav-link" href="{% url 'loginView' %}"> <button class="btn btn-info"> <i class="fa fa-shopping-cart" aria-hidden="true"></i></button></a>
-            {% endif %}
-
-            {% if request.user.is_authenticated %}
-            <a href="{% url 'ProfileApp:profileView' %}"><button class="btn btn-success">{{ request.user.username }}</button></a>
-            <a href="{% url 'logoutView' %}"><button class="btn btn-success">Logout</button></a>
-            {% else %}
-            <a href="{% url 'loginView' %}"><button class="btn btn-success">Login</button></a>
-            <a href="{% url 'signupView' %}"><button class="btn btn-success">Signup</button></a>
-            {% endif %}
-        </div>
     </nav>
 
     {% block body_block %}
