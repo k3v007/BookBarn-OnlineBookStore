@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core.exceptions import ObjectDoesNotExist
 from .models import Cart, BookOrder
-from .forms import AddressChoiceForm, NewAddressForm, CardForm
+from .forms import NewAddressForm, CardForm
 from BookBarnApp.models import Books
+from django.utils import timezone
 
 # Create your views here.
 
@@ -54,10 +55,11 @@ def cartHomeView(request):
         for order in orders:
             total += (order.book.price * order.quantity)
             count += order.quantity
+        cart.total = total
+        cart.save()
         context = {
             'cart' : cart,
             'cartItems': orders,
-            'total': total,
             'count': count,
         }
         return render(request, 'CartApp/home.html', context)
@@ -65,36 +67,56 @@ def cartHomeView(request):
         return redirect('homeView')
 
 
-#####################################
-# Not working properly :(
 
 def checkout(request, cart_id):
     if request.user.is_authenticated:
-        # cart = Cart.objects.filter(user=request.user.id, active=True)
+        # Getting the active cart of the user, active already handled in cartHomeView
         cart = Cart.objects.get(pk=cart_id)
-        # cart.active = False
-        # cart.save()
         orders = BookOrder.objects.filter(cart=cart_id)
         default_address = cart.user.user.get_full_address()
+        
+        address_choice = request.POST.get('address')
+        payment_choice = request.POST.get('payment')
+        
+        print(address_choice)
+        print(payment_choice)
+        print('\n')
 
         if request.method == 'POST':
-            pwd_form = AddressChoiceForm(data=request.POST)
-            # print('\n\n')
-            # print(pwd_form)
-            # print('\n\n')
-            if pwd_form.is_valid():                
-                pwd_form.save()                
+            if address_choice == 'new_add':
+                new_address_form = NewAddressForm(request.POST)
+                address1 = new_address_form.cleaned_data['address1']               
+                address2 = new_address_form.cleaned_data['address2']
+                city = new_address_form.cleaned_data['city']
+                state = new_address_form.cleaned_data['state']
+                pinCode = new_address_form.cleaned_data['pinCode']
+                address = address1 + ', ' + address2 + '\n' + city + '\n' + state + ' - ' + pinCode
+                
+                # Saving to the model
+                cart.delivery_address = address               
             else:
-                print(pwd_form.errors)
+                cart.delivery_address = default_address
 
-       ############## 
-        address_form = NewAddressForm()
-        card_form = CardForm()
-        return render(request, 'CartApp/checkout.html', {'address_form':address_form, 'address':default_address, 'card_form':card_form, 'cart':cart})
+            if payment_choice == 'card_pay':
+                card_form = CardForm(request.POST)
+                cart.cardNumber = card_form.cleaned_data['cardNumber']
+                cart.payment_style = 'CREDIT'
+            else:
+                cart.payment_style = 'COD'
+
+            cart.order_date = timezone.now()
+            cart.active = False     #Cart payment done, remove it
+            cart.save()            
+            return render(request, 'CartApp/orderplaced.html', {})
+        
+        else:
+            address_form = NewAddressForm()
+            card_form = CardForm()
+            return render(request, 'CartApp/checkout.html', {'address_form':address_form, 'address':default_address, 'card_form':card_form, 'cart':cart})
     else:
         return redirect('homeView')
 
-#####################################
+
 
 def orderPlacedView(request):
     return render(request, "CartApp/orderplaced.html", {})

@@ -8,7 +8,8 @@ class BookOrderAdmin(admin.ModelAdmin):
 
 
 class CartAdmin(admin.ModelAdmin):
-    list_display = ('user', 'active', 'order_date')
+    list_display = ('user', 'total', 'active', 'order_date', 'payment_style', 'delivery_address', 'cardNumber')
+    empty_value_display = 'N/A'
 
 admin.site.register(BookOrder, BookOrderAdmin)
 admin.site.register(Cart, CartAdmin)

@@ -121,7 +121,7 @@ class UserProfiles(models.Model):
     get_email.short_description = "E-mail"
 
     def get_full_address(self):
-        return self.address1 + '\n' + self.address2 + '\n' + self.city + '\n' + self.state + ' - ' + self.pinCode
+        return self.address1 + ', ' + self.address2 + '\n' + self.city + '\n' + self.state + ' - ' + self.pinCode
     get_full_address.short_description = "Address"
 
     def get_last_login(self):

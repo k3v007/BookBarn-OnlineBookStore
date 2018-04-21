@@ -16,7 +16,7 @@
 
 {% block body_block %}
 
-<form id="user_form" method="post" action="{% url 'CartApp:orderPlacedView' %}">
+<form id="user_form" method="post" action="{% url 'CartApp:checkout' cart.id %}">
     {% csrf_token %}
 
     <input type="radio" name="address" value="dft_add"  class="trigger_1" id="radio_default_address" data-rel="default_address" required>Default Address<br>
@@ -34,11 +34,11 @@
 
     <br>
 
-    <input type="radio" name="payment" value="dft_pay" class="trigger_2" id="radio_cod" data-rel="cash_on_delivery" required>Cash on Delivery<br>
+    <input type="radio" name="payment" value="cod_pay" class="trigger_2" id="radio_cod" data-rel="cash_on_delivery" required>Cash on Delivery<br>
     <div class="cash_on_delivery radio_content_2"></div>
 
 
-    <input type="radio" name="payment" value="dft_pay" class="trigger_2" id="radio_card" data-rel="card_details" required>Credit Card<br>
+    <input type="radio" name="payment" value="card_pay" class="trigger_2" id="radio_card" data-rel="card_details" required>Credit Card<br>
     <div class="card_details radio_content_2">
         {{ card_form.as_p}}
     </div>

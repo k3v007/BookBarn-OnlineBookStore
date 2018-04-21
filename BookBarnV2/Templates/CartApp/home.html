@@ -33,9 +33,9 @@
       </div>
    {% endfor %}
    <!-- Show Total only if there is any item in the Cart -->
-   {% if total > 0 %}     
+   {% if cart.total > 0 %}     
        <div class="cart_total">
-            <h4>Total: <span class="cart_value">&#8377;{{ total }}</span></h4>
+            <h4>Total: <span class="cart_value">&#8377;{{ cart.total }}</span></h4>
         </div>
     <a href="{% url 'homeView' %}"><button class="btn btn-success">Continue Shopping</button></a>
     <a href="{% url 'CartApp:checkout' cart.id %}"><button class="btn btn-success">Checkout</button></a>
