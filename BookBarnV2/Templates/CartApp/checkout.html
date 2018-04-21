@@ -71,26 +71,35 @@
         window.onload=function(){
             var radio_default_address = document.querySelector("#radio_default_address");
             radio_default_address.addEventListener("click", function(){
-                var fields = document.querySelector(".required_field_1");
-                fields.required = false;
+                var fields = document.querySelectorAll(".required_field_1");
+                fields.forEach( function(req_field) {
+                    req_field.required = false;
+                });
+                
             });
 
             var radio_new_address = document.querySelector("#radio_new_address");
             radio_new_address.addEventListener("click", function(){
-                var fields = document.querySelector(".required_field_1");
-                fields.required = true;
+                var fields = document.querySelectorAll(".required_field_1");
+                fields.forEach( function(req_field) {
+                    req_field.required = true;
+                });
             });
 
             var radio_cod = document.querySelector("#radio_cod");
             radio_cod.addEventListener("click", function(){
-                var fields = document.querySelector(".required_field_2");
-                fields.required = false;
+                var fields = document.querySelectorAll(".required_field_2");
+                fields.forEach( function(req_field) {
+                    req_field.required = false;
+                });
             });
 
             var radio_card = document.querySelector("#radio_card");
             radio_card.addEventListener("click", function(){
-                var fields = document.querySelector(".required_field_2");
-                fields.required = true;
+                var fields = document.querySelectorAll(".required_field_2");
+                fields.forEach( function(req_field) {
+                    req_field.required = true;
+                });
             });
         }
 
