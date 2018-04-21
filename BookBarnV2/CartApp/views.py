@@ -20,7 +20,16 @@ def add_to_cart(request, isbn):
             except ObjectDoesNotExist:
                 cart = Cart.objects.create(user=request.user)
                 cart.save()
-            cart.add_to_cart(isbn)
+            if book.booksCount > 0:
+                try:
+                    orders = BookOrder.objects.get(cart=cart, book=isbn).quantity
+                except:
+                    orders = 0
+                #Set the maximum limit of all books that you can buy
+                if orders < 5:
+                    cart.add_to_cart(isbn)
+                    book.booksCount -= 1
+                    book.save()
         return redirect('CartApp:cartHomeView')
     else:
         return redirect('homeView')
@@ -35,6 +44,8 @@ def remove_from_cart(request, isbn):
         else:
             cart = Cart.objects.get(user=request.user, active=True)
             cart.remove_from_cart(isbn)
+            book.booksCount += 1
+            book.save()
         return redirect('CartApp:cartHomeView')
     else:
         return redirect('homeView')

@@ -73,7 +73,7 @@ class Books(models.Model):
     authors = models.ManyToManyField(Authors, related_name='books', db_table='books_authors', verbose_name="Authors")
     genres = models.ManyToManyField(Genres, related_name='books', db_table='books_genres', verbose_name="Genres")
     booksCount = models.PositiveIntegerField(null=False, blank=False, default = 0, verbose_name="Number of Books")
-    bookFormat = models.CharField(max_length=20, blank=True, null=True, verbose_name="Book Format", help_text="eg. Paperback, Hardcover")
+    bookFormat = models.CharField(max_length=50, blank=True, null=True, verbose_name="Book Format", help_text="eg. Paperback, Hardcover")
 
     class Meta:
         verbose_name = "Book"
