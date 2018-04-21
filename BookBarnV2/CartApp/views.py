@@ -72,45 +72,47 @@ def checkout(request, cart_id):
     if request.user.is_authenticated:
         # Getting the active cart of the user, active already handled in cartHomeView
         cart = Cart.objects.get(pk=cart_id)
-        # orders = BookOrder.objects.filter(cart=cart_id)
-        default_address = cart.user.user.get_full_address()        
-        address_choice = request.POST.get('address')
-        payment_choice = request.POST.get('payment')
-
-        if request.method == 'POST':
-            if address_choice == 'new_add':
-                new_address_form = NewAddressForm(request.POST)
-                if new_address_form.is_valid():
-                    address1 = new_address_form.cleaned_data['address1']               
-                    address2 = new_address_form.cleaned_data['address2']
-                    city = new_address_form.cleaned_data['city']
-                    state = new_address_form.cleaned_data['state']
-                    pinCode = new_address_form.cleaned_data['pinCode']
-                    address = address1 + ', ' + address2 + '\n' + city + '\n' + state + ' - ' + pinCode
-                
-                    print(address1)
-                    # Saving to the model
-                    cart.delivery_address = address               
-            else:
-                cart.delivery_address = default_address
-
-            if payment_choice == 'card_pay':
-                card_form = CardForm(request.POST)
-                if card_form.is_valid():
-                    cart.cardNumber = card_form.cleaned_data['cardNumber']
-                    cart.payment_style = 'CARD'
-            else:
-                cart.payment_style = 'COD'
-
-            cart.order_date = timezone.now()
-            cart.active = False     #Cart payment done, remove it
-            cart.save()            
-            return render(request, 'CartApp/orderplaced.html', {})
         
+        if cart.active == True:     #To disable the repayment of the same order
+            # orders = BookOrder.objects.filter(cart=cart_id)
+            default_address = cart.user.user.get_full_address()        
+            address_choice = request.POST.get('address')
+            payment_choice = request.POST.get('payment')
+
+            if request.method == 'POST':
+                if address_choice == 'new_add':
+                    new_address_form = NewAddressForm(request.POST)
+                    if new_address_form.is_valid():
+                        address1 = new_address_form.cleaned_data['address1']               
+                        address2 = new_address_form.cleaned_data['address2']
+                        city = new_address_form.cleaned_data['city']
+                        state = new_address_form.cleaned_data['state']
+                        pinCode = new_address_form.cleaned_data['pinCode']
+                        address = address1 + ', ' + address2 + '\n' + city + '\n' + state + ' - ' + pinCode
+                        # Saving to the model
+                        cart.delivery_address = address               
+                else:
+                    cart.delivery_address = default_address
+
+                if payment_choice == 'card_pay':
+                    card_form = CardForm(request.POST)
+                    if card_form.is_valid():
+                        cart.cardNumber = card_form.cleaned_data['cardNumber']
+                        cart.payment_style = 'CARD'
+                else:
+                    cart.payment_style = 'COD'
+
+                cart.order_date = timezone.now()
+                cart.active = False     #Cart payment done, remove it
+                cart.save()            
+                return render(request, 'CartApp/orderplaced.html', {})
+            
+            else:
+                address_form = NewAddressForm()
+                card_form = CardForm()
+                return render(request, 'CartApp/checkout.html', {'address_form':address_form, 'address':default_address, 'card_form':card_form, 'cart':cart})
         else:
-            address_form = NewAddressForm()
-            card_form = CardForm()
-            return render(request, 'CartApp/checkout.html', {'address_form':address_form, 'address':default_address, 'card_form':card_form, 'cart':cart})
+            return redirect('homeView')
     else:
         return redirect('homeView')
 
