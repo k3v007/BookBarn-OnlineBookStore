@@ -6,18 +6,19 @@ ADDRESS_CHOICES = (
 )
 
 # Address Selection Form
-class CheckoutForm(forms.Form):
-
+class AddressChoiceForm(forms.Form):
     delivery_address = forms.CharField(
             label='Select Delivery Address',
             widget=forms.RadioSelect(
                     choices=ADDRESS_CHOICES,
                     )
             )
+    def clean(self):
+        data=self.cleaned_data
+        return data
 
 # Form for filling New Address
-class NewAddressForm(forms.Form):                       
-    
+class NewAddressForm(forms.Form):    
     address1 = forms.CharField(
             required=False, 
             label='', 
@@ -100,11 +101,14 @@ class NewAddressForm(forms.Form):
                         }
                     )
             ) 
+    
+    def clean(self):
+        data=self.cleaned_data
+        return data
 
 
 # Form for crredit/debit card details
 class CardForm(forms.Form):
-
     name = forms.CharField(
             required=False, 
             max_length=50,
@@ -178,3 +182,6 @@ class CardForm(forms.Form):
                         }
                     )
             )
+    def clean(self):
+        data=self.cleaned_data
+        return data

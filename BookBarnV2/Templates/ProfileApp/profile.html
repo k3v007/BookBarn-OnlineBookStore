@@ -1,0 +1,50 @@
+{% extends 'BookBarnApp/base.html' %}
+
+
+{% block head_block %}
+
+{% endblock %}
+
+
+{% block body_block %}
+
+
+    <div class="container">
+        {% if request.user.is_authenticated %}
+        <div class="row">
+            <div class="col">
+                <h4>Hello, {{ request.user.first_name }}</h4><br />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h3>Welcome to the BookBarn - The online book store</h3><br />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {% if message %}
+                <h6>{{ message }}</h6><br />
+                {% endif %}
+            </div>
+        </div>
+        <br><br>
+        <div class="row">
+            <div class="col">
+                <ul>
+                    <li><a href="{% url 'ProfileApp:updateProfileView'%}">Update Information</a></li>
+                    <li><a href="#">Order History</a></li>
+                    <li><a href="{% url 'ProfileApp:updatePasswordView'%}">Password Reset</a></li>
+                </ul>
+            </div>
+        </div>
+        {% else %}
+            <div class="row">
+                <div class="col">
+                    <h3>You're not logged in.</h3>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+{% endblock %}

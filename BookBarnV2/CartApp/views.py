@@ -2,39 +2,10 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core.exceptions import ObjectDoesNotExist
 from .models import Cart, BookOrder
+from .forms import AddressChoiceForm, NewAddressForm, CardForm
 from BookBarnApp.models import Books
-from .forms import CheckoutForm, NewAddressForm, CardForm
 
 # Create your views here.
-
-# def cartHomeView(request):
-#     cart_obj, new_obj = Cart.objects.new_or_get(request)
-#     print("XOXOXOXO")
-#     print(cart_obj)
-#     print("TOTOTOTO")
-#     return render(request, "CartApp/home.html", {"cart":cart_obj})
-
-# def cartUpdateView(request):
-#     product_id = request.POST.get('product_id')
-#     if product_id is not None:
-#         try:
-#             product_obj = Books.objects.get(isbn = product_id)
-#         except Books.DoesNotExist:
-#             print("Product is gone?")
-#             return redirect("CartApp:cartHomeView")
-
-#     cart_obj, new_obj = Cart.objects.new_or_get(request)
-#     if product_obj in cart_obj.products.all():
-#         cart_obj.products.remove(product_obj)
-#     else:
-#         cart_obj.products.add(product_obj)
-#     request.session['cart_items'] = cart_obj.products.count()
-#     # return redirect(product_obj.get_absolute_url())
-#     return redirect("CartApp:cartHomeView")
-    
-
-##################################################################################
-
 
 def add_to_cart(request, isbn):
     if request.user.is_authenticated:
@@ -94,6 +65,9 @@ def cartHomeView(request):
         return redirect('homeView')
 
 
+#####################################
+# Not working properly :(
+
 def checkout(request, cart_id):
     if request.user.is_authenticated:
         # cart = Cart.objects.filter(user=request.user.id, active=True)
@@ -103,11 +77,24 @@ def checkout(request, cart_id):
         orders = BookOrder.objects.filter(cart=cart_id)
         default_address = cart.user.user.get_full_address()
 
+        if request.method == 'POST':
+            pwd_form = AddressChoiceForm(data=request.POST)
+            # print('\n\n')
+            # print(pwd_form)
+            # print('\n\n')
+            if pwd_form.is_valid():                
+                pwd_form.save()                
+            else:
+                print(pwd_form.errors)
+
+       ############## 
         address_form = NewAddressForm()
         card_form = CardForm()
-        return render(request, 'CartApp/checkout.html', {'address_form':address_form, 'address':default_address, 'card_form':card_form})
+        return render(request, 'CartApp/checkout.html', {'address_form':address_form, 'address':default_address, 'card_form':card_form, 'cart':cart})
     else:
         return redirect('homeView')
+
+#####################################
 
 def orderPlacedView(request):
     return render(request, "CartApp/orderplaced.html", {})

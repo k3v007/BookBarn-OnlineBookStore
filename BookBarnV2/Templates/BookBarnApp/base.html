@@ -63,7 +63,7 @@
             {% endif %}
 
             {% if request.user.is_authenticated %}
-            <a href="#"><button class="btn btn-success">{{ request.user.username }}</button></a>
+            <a href="{% url 'ProfileApp:profileView' %}"><button class="btn btn-success">{{ request.user.username }}</button></a>
             <a href="{% url 'logoutView' %}"><button class="btn btn-success">Logout</button></a>
             {% else %}
             <a href="{% url 'loginView' %}"><button class="btn btn-success">Login</button></a>
