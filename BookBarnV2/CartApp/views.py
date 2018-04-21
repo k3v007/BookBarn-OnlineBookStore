@@ -85,22 +85,25 @@ def checkout(request, cart_id):
         if request.method == 'POST':
             if address_choice == 'new_add':
                 new_address_form = NewAddressForm(request.POST)
-                address1 = new_address_form.cleaned_data['address1']               
-                address2 = new_address_form.cleaned_data['address2']
-                city = new_address_form.cleaned_data['city']
-                state = new_address_form.cleaned_data['state']
-                pinCode = new_address_form.cleaned_data['pinCode']
-                address = address1 + ', ' + address2 + '\n' + city + '\n' + state + ' - ' + pinCode
+                if new_address_form.is_valid():
+                    address1 = new_address_form.cleaned_data['address1']               
+                    address2 = new_address_form.cleaned_data['address2']
+                    city = new_address_form.cleaned_data['city']
+                    state = new_address_form.cleaned_data['state']
+                    pinCode = new_address_form.cleaned_data['pinCode']
+                    address = address1 + ', ' + address2 + '\n' + city + '\n' + state + ' - ' + pinCode
                 
-                # Saving to the model
-                cart.delivery_address = address               
+                    print(address1)
+                    # Saving to the model
+                    cart.delivery_address = address               
             else:
                 cart.delivery_address = default_address
 
             if payment_choice == 'card_pay':
                 card_form = CardForm(request.POST)
-                cart.cardNumber = card_form.cleaned_data['cardNumber']
-                cart.payment_style = 'CREDIT'
+                if card_form.is_valid():
+                    cart.cardNumber = card_form.cleaned_data['cardNumber']
+                    cart.payment_style = 'CREDIT'
             else:
                 cart.payment_style = 'COD'
 
