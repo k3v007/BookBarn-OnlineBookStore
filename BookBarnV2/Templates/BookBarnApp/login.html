@@ -8,17 +8,17 @@
 
 
 <div class="container">
-	<div class="row">
+	<div class="row loginPageHeading">
 		<div class="col">
-			<h1>Login to BookBarn</h1>
+			<h4>Login to BookBarn</h4>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row loginPageForm">
 		<div class="col">
 			<form id="login_form" method="post" action="{% url 'loginView' %}">
 				{% csrf_token %}
-				{{ form }}
-				<input type="submit" class="btn btn-success" value="Login" />
+				{{ form.as_p }}
+				<input class="loginPageButton" type="submit" class="btn btn-success" value="Login" />
 			</form>
 		</div>
 	</div>

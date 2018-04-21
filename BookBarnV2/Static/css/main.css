@@ -1,4 +1,6 @@
-
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+        /*Major Styles*/
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
 html, body{
     margin: 0;
     padding: 0;
@@ -15,71 +17,77 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+        /*Navbar Styles*/
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
 
-/*Navbar Styles*/
 
+/*Navbar*/
 .navBar {
-	padding: 4px 50px;
-	background: #f4f4f4;
+    padding: 4px 50px;
+    background: #f4f4f4;
 }
 
+/*BrandName*/
 .navbarBrand {
-	color: #333333;
-	font-size: 1.35em;
-	padding: 0 4px;
-	margin: 0 4px;
+    color: #333333;
+    font-size: 1.35em;
+    padding: 0 4px;
+    margin: 0 4px;
 }
 
 .navbarBrand:hover {
-	color: #333333;
-	text-decoration: none;
+    color: #333333;
+    text-decoration: none;
 }
 
+/*Links*/
 .navbarLink {
-	color: #333333;
-	padding: 0 4px;
-	margin: 0 4px;
+    color: #333333;
+    padding: 0 4px;
+    margin: 0 4px;
 }
 
 .navbarLink:hover {
-	color: #333333;
-	text-decoration: none;
+    color: #333333;
+    text-decoration: none;
 }
 
+/*SearchForm*/
 .navSearchForm {
-	display: inline-block;
-	padding: 0 4px;
-	margin: 0 4px;
-	margin-left: 40px;
+    display: inline-block;
+    padding: 0 4px;
+    margin: 0 4px;
+    margin-left: 40px;
 }
 
 .navSearchInput {
-	vertical-align: middle;
-	padding: 1px 5px;
-	margin: 0 3px;
-	min-width: 250px;
+    vertical-align: middle;
+    padding: 1px 5px;
+    margin: 0 3px;
+    min-width: 250px;
 
-	margin-right: 0;
-	border-radius: 3px 0 0 3px;
-	background-color: #eeeeee;
+    margin-right: 0;
+    border-radius: 3px 0 0 3px;
+    background-color: #eeeeee;
     border: 1px solid #dddddd;
     border-right: 0;
 }
 
 .navSearchButton {
-	padding: 3px 10px;
-	margin: 0 3px;
-	border: none;
+    padding: 3px 10px;
+    margin: 0 3px;
+    border: none;
 
-	margin-left: 0;
-	border-radius: 0 3px 3px 0;
-	border-left: 0;
-	background: -webkit-linear-gradient(62deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
+    margin-left: 0;
+    border-radius: 0 3px 3px 0;
+    border-left: 0;
+    background: -webkit-linear-gradient(62deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
     background: -o-linear-gradient(62deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
     background: linear-gradient(152deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
-	color: #fff;
+    color: #fff;
 
-	transition: all 0.4s;
+    transition: all 0.4s;
     -webkit-transition: all 0.4s;
     -moz-transition: all 0.4s;
     -ms-transition: all 0.4s;
@@ -92,20 +100,22 @@ body {
     color: #fff;
 }
 
+
+/*Buttons*/
 .navLoginLink, .navSignupLink, .navUserLink, .navLogoutLink{
-	float: right;
-	padding: 0 3px;
-	margin: 0 3px;
+    float: right;
+    padding: 0 3px;
+    margin: 0 3px;
 }
 
 .navCartLink {
-	float: right;
-	padding: 0 3px;
-	margin: 0 3px;
+    float: right;
+    padding: 0 3px;
+    margin: 0 3px;
 }
 
 .navButton {
-	border: none;
+    border: none;
     background: -webkit-linear-gradient(62deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
     background: -o-linear-gradient(62deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
     background: linear-gradient(152deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
@@ -125,6 +135,93 @@ body {
 }
 
 .navButton:hover {
+    box-shadow: 0px 25px 18px -6px rgba(0, 0, 0,0.2);
+    background-color: #63b2fc;
+    color: #fff;
+}
+
+
+
+
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+        /*Signup page*/
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
+.signupPageHeading {
+    text-align: center;
+}
+
+.signupPageForm {
+    max-width: 450px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.signupPageButton {
+    border: none;
+    margin: 10px auto;
+    background: -webkit-linear-gradient(62deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
+    background: -o-linear-gradient(62deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
+    background: linear-gradient(152deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
+    padding: 8px;
+    min-width: 110px;
+    border-radius: 6px;
+    color: #ffffff;
+    box-shadow: 0px 18px 13px -6px rgba(0, 0, 0,0.1);
+    outline: none;
+
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+}
+
+.signupPageButton:hover {
+    box-shadow: 0px 25px 18px -6px rgba(0, 0, 0,0.2);
+    background-color: #63b2fc;
+    color: #fff;
+}
+
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+        /*Login page*/
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
+
+.loginPageHeading {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.loginPageForm {
+    max-width: 350px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.loginPageButton {
+    border: none;
+    margin: 5px auto;
+    background: -webkit-linear-gradient(62deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
+    background: -o-linear-gradient(62deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
+    background: linear-gradient(152deg, rgba(0, 188, 255, 0.78), rgba(0, 142, 255, 1));
+    padding: 8px;
+    min-width: 110px;
+    border-radius: 6px;
+    color: #ffffff;
+    box-shadow: 0px 18px 13px -6px rgba(0, 0, 0,0.1);
+    outline: none;
+
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+}
+
+.loginPageButton:hover {
     box-shadow: 0px 25px 18px -6px rgba(0, 0, 0,0.2);
     background-color: #63b2fc;
     color: #fff;
