@@ -5,7 +5,7 @@ from BookBarnApp.models import Books
 
 class Cart(models.Model):    
     PAYMENT_CHOICES = (
-        ('CREDIT', 'Credit Card'),
+        ('CARD', 'Credit Card'),
         ('COD', 'Cash on Delivery')
     )
     

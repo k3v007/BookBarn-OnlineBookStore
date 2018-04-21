@@ -1,0 +1,48 @@
+{% extends 'BookBarnApp/base.html' %}
+
+{% block head_block %}
+
+{% endblock %}
+
+{% block body_block %}
+
+<div class="col-md-8 col-md-offset-2 col-sm-12 maincontent">
+  <div style="text-align: center; text-decoration: underline;">
+      <h3>Your Order History</h3>
+  </div>
+  <div class="cart_container">
+
+   <!-- Html codes are copy paste from cartApp:home.html so change all classes according to your need -->
+   {% for cart in carts %}
+   
+      <div class="cart_item">
+        <div class="cart_listing">
+            <h4>Order ID : {{ cart.id }}</h4>
+        </div>
+        <div>
+            <h6>{{ cart.order_date }}</h6>
+        </div>
+        <div>
+            <h6>&#8377;{{ cart.total }}</h6>
+        </div>
+        <div>
+            <h6>{{ cart.payment_style }}</h6>
+        </div>
+        <div>
+            <h6><span style='white-space:pre-line'>{{ cart.delivery_address }}</span></h6>
+        </div>
+        <div>
+            <a href="{% url 'ProfileApp:orderDetailsView' cart.id %}">
+                <h6>Click here for Details</h6>
+            </a>
+        </div>
+      </div>    
+   {% empty %}
+      <div>
+          No Purchase history!
+      </div>
+   {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

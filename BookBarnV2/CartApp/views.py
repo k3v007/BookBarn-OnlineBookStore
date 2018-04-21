@@ -72,15 +72,10 @@ def checkout(request, cart_id):
     if request.user.is_authenticated:
         # Getting the active cart of the user, active already handled in cartHomeView
         cart = Cart.objects.get(pk=cart_id)
-        orders = BookOrder.objects.filter(cart=cart_id)
-        default_address = cart.user.user.get_full_address()
-        
+        # orders = BookOrder.objects.filter(cart=cart_id)
+        default_address = cart.user.user.get_full_address()        
         address_choice = request.POST.get('address')
         payment_choice = request.POST.get('payment')
-        
-        print(address_choice)
-        print(payment_choice)
-        print('\n')
 
         if request.method == 'POST':
             if address_choice == 'new_add':
@@ -103,7 +98,7 @@ def checkout(request, cart_id):
                 card_form = CardForm(request.POST)
                 if card_form.is_valid():
                     cart.cardNumber = card_form.cleaned_data['cardNumber']
-                    cart.payment_style = 'CREDIT'
+                    cart.payment_style = 'CARD'
             else:
                 cart.payment_style = 'COD'
 

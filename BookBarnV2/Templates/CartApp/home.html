@@ -17,10 +17,12 @@
             <a href="{{ item.book.get_absolute_url }}"><img src="{{ item.book.coverImage }}" alt="Book Cover" class="img-fluid"></a>
         </div> -->
         <div class="cart_listing">
-            <span class="title">{{ item.book.bookTitle }}</span> by
-            {% for auth in item.book.authors.all %}
-                {{ auth.get_full_name }}
-            {% endfor %}
+            <a href="{% url 'bookView' item.book.isbn %}">
+                <span class="title">{{ item.book.bookTitle }}</span> by
+                {% for auth in item.book.authors.all %}
+                    {{ auth.get_full_name }}
+                {% endfor %}
+            </a>
         </div>
         <div class="cart_price">
             <span class="cart_quantity">{{ item.quantity }} x &#8377;<span class="cart_value">{{ item.book.price }}</span> </span>

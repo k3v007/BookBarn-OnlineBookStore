@@ -23,6 +23,7 @@
                     {{ pwd_form.as_p }}
                     <input type="submit" name="submit" value="Reset" />
                 </form>
+                <a href="{% url 'ProfileApp:profileView' %}"><button class="btn btn-success">Cancel</button></a>
             </div>
         </div>
         {% else %}

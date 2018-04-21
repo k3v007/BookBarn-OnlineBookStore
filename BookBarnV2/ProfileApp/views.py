@@ -9,7 +9,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
-from CartApp.models import Cart
+from CartApp.models import Cart, BookOrder
 from django.forms.models import model_to_dict
 
 # Create your views here.
@@ -53,3 +53,25 @@ def updatePasswordView(request):
         pwd_form = UserPwdUpdateForm()
 
     return render(request, 'ProfileApp/pwd_reset.html', {'pwd_form': pwd_form})
+
+
+def orderHistoryView(request):
+    if request.user.is_authenticated:
+        carts = Cart.objects.filter(user=request.user.id, active=False)
+        return render(request, 'ProfileApp/order_history.html', {'carts':carts})
+    else:
+        return redirect('homeView')
+
+
+
+def orderDetailsView(request, order_id):
+    if request.user.is_authenticated:
+        try:
+            cart = Cart.objects.get(pk=order_id)
+        except ObjectDoesNotExist:
+            # returning an empty list of context
+            return render(request, 'ProfileApp/home.html', {})
+        orders = BookOrder.objects.filter(cart=cart)
+        return render(request, 'ProfileApp/order_details.html', {'orders':orders, 'order_id':order_id})
+    else:
+        return redirect('homeView')

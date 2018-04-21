@@ -1,23 +1,6 @@
 from django import forms
 
-# ADDRESS_CHOICES = (
-#     ('dft_add', "Default Address"),
-#     ('new_add', "Other Address"),
-# )
 
-# # Address Selection Form
-# class AddressChoiceForm(forms.Form):
-#     delivery_address = forms.CharField(
-#             label='Select Delivery Address',
-#             widget=forms.RadioSelect(
-#                     choices=ADDRESS_CHOICES,
-#                     )
-#             )
-#     def clean(self):
-#         data=self.cleaned_data
-#         return data
-
-# Form for filling New Address
 class NewAddressForm(forms.Form):    
     address1 = forms.CharField(
             required=False, 
