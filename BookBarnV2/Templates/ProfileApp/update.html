@@ -11,26 +11,26 @@
 
     <div class="container mainContainer">
         {% if request.user.is_authenticated %}
-        <div class="row">
+        <div class="row signupPageHeading">
             <div class="col" style="text-align: center;">
                 <h4>Update info here!</h4> <hr>
             </div>
         </div>
-        <div class="row">
+        <div class="row signupPageForm">
             <div class="col">
                 <form id="user_form" method="post" action="{% url 'ProfileApp:updateProfileView' %}">
                     {% csrf_token %}
                     {{ user_form.as_p }}
                     {{ profile_form.as_p }}
-                    <input type="submit" name="submit" value="Update" />
+                    <input class="signupPageButton" type="submit" name="submit" value="Update" />
                 </form>
-                <a href="{% url 'ProfileApp:profileView' %}"><button class="btn btn-success">Cancel</button></a>
+                <a href="{% url 'ProfileApp:profileView' %}"><button class="signupPageButton">Cancel</button></a>
             </div>
         </div>
         {% else %}
             <div class="row">
-                <div class="col">
-                    <h3>You're not logged in.</h3>
+                <div class="col" style="text-align: center;">
+                    <h4>You're not logged in.</h4>
                 </div>
             </div>
         {% endif %}

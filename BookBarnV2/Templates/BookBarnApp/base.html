@@ -32,7 +32,7 @@
 
         <!-- Search Form -->
         <form class="navSearchForm" method="GET" action="{% url 'SearchApp:SearchBookView' %}">
-            <input class="navSearchInput" type="search"  name="q" value="{{ request.GET.q }}" aria-label="Search" placeholder=" Search for Books here." /><button class="btn navSearchButton" type="submit">Search</button>
+            <input class="navSearchInput" type="search"  name="q" value="{{ request.GET.q }}" aria-label="Search" placeholder=" Search for Books here." required /><button class="btn navSearchButton" type="submit">Search</button>
         </form>
         
         <!-- Login/Signup -->

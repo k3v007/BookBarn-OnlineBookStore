@@ -6,9 +6,9 @@
 
 {% block body_block %}
     
-    <div class="mainContainer">
+    <div class="container mainContainer">
         <div class="row">
-            <div class="col" style="max-width: 850px;">
+            <div class="col">
                 {%if request.GET.q%}
                 <div class="searchHead">
                     <h4>Searched for: "<strong>{{ request.GET.q }}</strong>"</h4>
@@ -23,9 +23,10 @@
 
         <div class="searchResultShelf">
             <div class="row">
-                <div class="col-4">
-                    <a href="{{ book.get_absolute_url }}"><img src="{{ book.coverImage }}" alt="Book Cover" class="img-fluid" height="100" width="100"></a>
-                    
+                <div class="col-3">
+                    <div class="searchBookCover">
+                        <a href="{{ book.get_absolute_url }}"><img src="{{ book.coverImage }}" alt="Book Cover" class="img-fluid"></a>
+                    </div>                  
                 </div>
                 <div class="col">
                     <ul>
@@ -38,8 +39,13 @@
                 </div>
             </div> 
         </div>
-         
-        
+
+        {% empty %}
+            <div class="row">
+                <div class="col" style="text-align: center;">
+                    <h4>No Results Found.</h4>
+                </div>
+            </div>
         {% endfor %}
         
     </div>

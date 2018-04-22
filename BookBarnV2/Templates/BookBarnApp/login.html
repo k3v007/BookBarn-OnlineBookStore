@@ -8,13 +8,13 @@
 
 
 <div class="container mainContainer">
-	<div class="row loginPageHeading">
-		<div class="col">
-			<h4>Login to BookBarn</h4>
+	<div class="row">
+		<div class="col loginPageHeading">
+			<h4>Login to BookBarn</h4> <hr>
 		</div>
 	</div>
-	<div class="row loginPageForm">
-		<div class="col">
+	<div class="row">
+		<div class="col loginPageForm">
 			<form id="login_form" method="post" action="{% url 'loginView' %}">
 				{% csrf_token %}
 				{{ form.as_p }}

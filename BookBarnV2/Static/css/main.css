@@ -21,6 +21,29 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+label {
+    font-size: 0.8em;
+}
+
+/*Hiding Scrollbar*/
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+
+/*For the Container*/
 .mainContainer {
     padding: 100px 50px;
     background: #f4f4f4;
@@ -402,3 +425,107 @@ tbody {
     margin: 3px 0 ;
 }
 
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+        /*SearchResult Page*/
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
+.searchHead {
+    text-align: center;
+}
+
+.searchResultShelf {
+    background-color: #dfdfdf;
+    margin: 25px 20%;
+    padding: 25px 30px;
+    border-radius: 5px;
+    height: 220px;
+}
+
+.searchBookCover a {
+    display: inline-block;
+    height: 120px;
+    width: 100px;
+}
+
+.searchBookCover a img {
+    min-width: 100%;
+    min-height: 100%;;
+    border-radius: 3px;
+    -webkit-box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.6);
+    -moz-box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.6);
+    box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.6);
+}
+
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+        /*Category Page*/
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
+
+.categoryHead {
+    text-align: center;
+}
+
+.categoryResultShelf {
+    background-color: #dfdfdf;
+    margin: 25px 5%;
+    padding: 25px 30px;
+    border-radius: 5px;
+    height: 220px;
+}
+
+.categoryBookCover a {
+    display: inline-block;
+    height: 120px;
+    width: 100px;
+}
+
+.categoryBookCover a img {
+    min-width: 100%;
+    min-height: 100%;;
+    border-radius: 3px;
+    -webkit-box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.6);
+    -moz-box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.6);
+    box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.6);
+}
+
+
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+        /*Profile Page*/
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
+.profileHead{
+    text-align: center
+}
+
+.profileOption {
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.profileOptionLink {
+
+}
+
+.profileOptionButton {
+    border: none;
+    padding: 50px;
+    width: 60%;
+    color: #333333;
+    font-weight: 500;
+    font-size: 1.1em;
+    border-radius: 5px;
+    box-shadow: 4px 5px 3px -1px rgba(0, 0, 0,0.2);
+
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+}
+
+.profileOptionButton:hover {
+    box-shadow: 6px 7px 5px 0px rgba(0, 0, 0,0.3);
+}

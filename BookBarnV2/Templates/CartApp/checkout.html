@@ -15,37 +15,43 @@
 {% endblock %}
 
 {% block body_block %}
+<div class="container mainContainer">
+    <div class="row">
+        <div class="col">
+            <form id="user_form" method="post" action="{% url 'CartApp:checkout' cart.id %}">
+                {% csrf_token %}
 
-<form id="user_form" method="post" action="{% url 'CartApp:checkout' cart.id %}">
-    {% csrf_token %}
+                <input type="radio" name="address" value="dft_add"  class="trigger_1" id="radio_default_address" data-rel="default_address" required>Default Address<br>
+                <div class="default_address radio_content_1">
+                    <span style="white-space: pre-line">{{ address }}</span>
+                </div> 
 
-    <input type="radio" name="address" value="dft_add"  class="trigger_1" id="radio_default_address" data-rel="default_address" required>Default Address<br>
-    <div class="default_address radio_content_1">
-        <span style="white-space: pre-line">{{ address }}</span>
-    </div> 
+                <input type="radio" name="address" value="new_add" class="trigger_1" id="radio_new_address" data-rel="new_address" required>New Address<br>
+                <div class="new_address radio_content_1">
+                    {{ address_form.as_p}}
+                </div>    
+                
+                <br><br>
+                Payment Type:
 
-    <input type="radio" name="address" value="new_add" class="trigger_1" id="radio_new_address" data-rel="new_address" required>New Address<br>
-    <div class="new_address radio_content_1">
-        {{ address_form.as_p}}
-    </div>    
-    
-    <br><br>
-    Payment Type:
+                <br>
 
-    <br>
-
-    <input type="radio" name="payment" value="cod_pay" class="trigger_2" id="radio_cod" data-rel="cash_on_delivery" required>Cash on Delivery<br>
-    <div class="cash_on_delivery radio_content_2"></div>
+                <input type="radio" name="payment" value="cod_pay" class="trigger_2" id="radio_cod" data-rel="cash_on_delivery" required>Cash on Delivery<br>
+                <div class="cash_on_delivery radio_content_2"></div>
 
 
-    <input type="radio" name="payment" value="card_pay" class="trigger_2" id="radio_card" data-rel="card_details" required>Credit Card<br>
-    <div class="card_details radio_content_2">
-        {{ card_form.as_p}}
-    </div>
-    
-    <input type="submit" name="submit" value="Checkout" />
-</form>
+                <input type="radio" name="payment" value="card_pay" class="trigger_2" id="radio_card" data-rel="card_details" required>Credit Card<br>
+                <div class="card_details radio_content_2">
+                    {{ card_form.as_p}}
+                </div>
+                
+                <input type="submit" name="submit" value="Checkout" />
+            </form>
 <a href="{% url 'homeView' %}"><button class="btn btn-success">Cancel</button></a>
+        </div>
+    </div>
+</div>
+
 
 
 

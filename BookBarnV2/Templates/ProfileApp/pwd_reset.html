@@ -1,29 +1,27 @@
 {% extends 'BookBarnApp/base.html' %}
 
-
 {% block head_block %}
 
 {% endblock %}
 
-
 {% block body_block %}
 
 
-    <div class="container mainContainer">
-        {% if request.user.is_authenticated %}
-        <div class="row">
-            <div class="col" style="text-align: center;">
+<div class="container mainContainer">
+    {% if request.user.is_authenticated %}
+        <div class="row loginPageHeading">
+            <div class="col">
                 <h4>Reset Password</h4><hr>
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col loginPageForm">
                 <form id="user_form" method="post" action="{% url 'ProfileApp:updatePasswordView' %}">
                     {% csrf_token %}
                     {{ pwd_form.as_p }}
-                    <input type="submit" name="submit" value="Reset" />
+                    <input class="loginPageButton" type="submit" name="submit" value="Reset" />
                 </form>
-                <a href="{% url 'ProfileApp:profileView' %}"><button class="btn btn-success">Cancel</button></a>
+                <a href="{% url 'ProfileApp:profileView' %}"><button class="loginPageButton">Cancel</button></a>
             </div>
         </div>
         {% else %}
@@ -32,7 +30,7 @@
                     <h3>You're not logged in.</h3>
                 </div>
             </div>
-        {% endif %}
-    </div>
+    {% endif %}
+</div>
 
 {% endblock %}
