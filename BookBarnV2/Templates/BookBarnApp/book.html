@@ -14,16 +14,18 @@
         <div class="col bookDetailsLeftWrapper">
             
                 <div class="row">
-                <div class="col bookCoverMain">
-                    <img class="img-fluid" src="{{ book.coverImage }}" alt="Cover">
-                </div>  
+                    <div class="col">
+                        <div class="bookCoverMain">
+                            <img class="img-fluid" src="{{ book.coverImage }}" alt="Cover">
+                        </div>
+                    </div>  
                 </div>
 
                 <div class="row tableWrapper">
                     <div class="col">
                         <table class="table table-striped">
                             <tbody>
-                                <tr class="table-primary">
+                                <tr class="bg-success">
                                     <th scope="row">Rating:</th>
                                     <td>
                                         <div class="star-ratings-sprite">
@@ -31,7 +33,7 @@
                                         </div>
                                     </td>                            
                                 </tr>
-                                <tr class="table-primary">
+                                <tr class="bg-success">
                                     <th scope="row">Price:</th>
                                     <td>&#8377; {{ book.price }}</td>               
                                 </tr>
