@@ -7,15 +7,114 @@
 {% block body_block %}
 
 <div class="container mainContainer">
-    <div style="text-align: center;">
-        <h3>Your Cart</h3><hr>
-     </div>
-    <div class="cart_container">
+    
+    <div class="row">
+        <div class="col" style="text-align: center;">
+            <h3>Your Cart</h3>
+        </div>
+    </div>
+    
+    {% if not count %}
+    <div class="row">
+        <div class="col" style="text-align: center; ">
+            <hr><h6>There are no items in your cart!</h6>
+        </div>
+    </div>
+    {% else %}
+    
+    <div class="row">
+        <div class="col">
+             <table class="table cartTable">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Item</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in cartItems %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>
+
+                            <div class="cartBookCover" style="float:left;">
+                                <a href="{{ item.book.get_absolute_url }}"><img src="{{ item.book.coverImage }}" alt="Book Cover" class="img-fluid"></a>
+                            </div>
+                            <a class="cartBookLink" href="{% url 'bookView' item.book.isbn %}">
+                                <span class="cartBookTitle">{{ item.book.bookTitle }}</span><br> 
+                                <span class="cartBookAuthor">by {% for auth in item.book.authors.all %}
+                                    {{ auth.get_full_name }}</span>
+                                
+                                {% endfor %}
+                            </a>
+
+                        </td>
+                        <td>
+                            
+                            <a href="{% url 'CartApp:add_to_cart' item.book.isbn %}"><button class="button">[+]</button></a>
+                
+                            <button>{{ item.quantity }}</button>
+                            
+                            <a href="{% url 'CartApp:remove_from_cart' item.book.isbn %}"><button>[-]</button></a>
+
+                        </td>
+                        <td>
+
+                            <span>{{ item.quantity }} x &#8377;<span>{{ item.book.price }}</span> </span>
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+
+                    <tr>
+                        <td colspan="4">
+
+                            {% if cart.total > 0 %}     
+                               <div class="cart_total">
+                                    <h4>Total: <span class="cart_value">&#8377;{{ cart.total }}</span></h4>
+                                </div>
+                            <a href="{% url 'homeView' %}"><button class="btn btn-success">Continue Shopping</button></a>
+                            <a href="{% url 'CartApp:checkout' cart.id %}"><button class="btn btn-success">Checkout</button></a>
+                            {% endif %}
+
+                        </td>
+                        
+                    </tr>
+                  </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+    {% endif %}
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <div class="cart_container">
         {% for item in cartItems %}
         <div class="cart_item">
-            <!-- <div class="bookCover">
+            <div class="searchBookCover">
                 <a href="{{ item.book.get_absolute_url }}"><img src="{{ item.book.coverImage }}" alt="Book Cover" class="img-fluid"></a>
-            </div> -->
+            </div> 
             <div class="cart_listing">
                 <a href="{% url 'bookView' item.book.isbn %}">
                     <span class="title">{{ item.book.bookTitle }}</span> by
@@ -37,12 +136,8 @@
                 <a href="{% url 'CartApp:remove_from_cart' item.book.isbn %}"><button>[-]</button></a>
             </div>
         </div>
-       {% empty %}
-          <div style="text-align: center; ">
-              <h6>There are no items in your cart!</h6>
-          </div>
        {% endfor %}
-       <!-- Show Total only if there is any item in the Cart -->
+       
        {% if cart.total > 0 %}     
            <div class="cart_total">
                 <h4>Total: <span class="cart_value">&#8377;{{ cart.total }}</span></h4>
@@ -50,7 +145,7 @@
         <a href="{% url 'homeView' %}"><button class="btn btn-success">Continue Shopping</button></a>
         <a href="{% url 'CartApp:checkout' cart.id %}"><button class="btn btn-success">Checkout</button></a>
         {% endif %}
-      </div>
+      </div> -->
 </div>
 
 {% endblock %}
