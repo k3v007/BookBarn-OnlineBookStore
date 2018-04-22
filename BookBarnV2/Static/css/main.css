@@ -554,7 +554,7 @@ tbody {
 
 /*Cart Table*/
 .cartTable {
-
+    margin-top: 30px;
 }
 
 .cartTable thead tr th {
@@ -562,7 +562,7 @@ tbody {
 }
 
 .cartTable tbody tr {
-    height: 200px;
+    height: 190px;
 }
 
 
@@ -582,3 +582,50 @@ tbody {
 
 /*Buttons*/
 
+.quantityButton {
+    border: none;
+    background-color: #d6d6d6;
+    border-radius: 4px;
+    padding: 8px 18px;
+    margin: 0 1px;
+    box-shadow: 4px 5px 3px -1px rgba(0, 0, 0,0.2);
+    font-size: 1.2em;
+}
+
+.plusMinusButtons {
+    border: none;
+    background-color: #dddddd;
+    border-radius: 4px;
+    padding: 7px 15px;
+    margin: 0 1px;
+    box-shadow: 4px 5px 3px -1px rgba(0, 0, 0,0.2);
+
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+}
+
+.plusMinusButtons:hover {
+    box-shadow: 6px 7px 5px 0px rgba(0, 0, 0,0.3);
+}
+
+
+/*End Buttons*/
+
+.cartTotal {
+    padding: 20px;
+    margin-left: 75%;
+    text-align: center;
+}
+
+.cartFinalButtons {
+    padding: 20px;
+    text-align: center;
+}
+
+.cartFinalButtons a button {
+    margin: 10px;
+    min-width: 160px;
+}

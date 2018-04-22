@@ -53,11 +53,11 @@
                         </td>
                         <td>
                             
-                            <a href="{% url 'CartApp:add_to_cart' item.book.isbn %}"><button class="button">[+]</button></a>
-                
-                            <button>{{ item.quantity }}</button>
-                            
-                            <a href="{% url 'CartApp:remove_from_cart' item.book.isbn %}"><button>[-]</button></a>
+                            <a href="{% url 'CartApp:add_to_cart' item.book.isbn %}"><button class="plusMinusButtons">+</button></a>
+
+                            <button class="quantityButton">{{ item.quantity }}</button>
+
+                            <a href="{% url 'CartApp:remove_from_cart' item.book.isbn %}"><button class="plusMinusButtons">-</button></a>
 
                         </td>
                         <td>
@@ -68,29 +68,34 @@
                     </tr>
                     {% endfor %}
 
-
-                    <tr>
-                        <td colspan="4">
-
-                            {% if cart.total > 0 %}     
-                               <div class="cart_total">
-                                    <h4>Total: <span class="cart_value">&#8377;{{ cart.total }}</span></h4>
-                                </div>
-                            <a href="{% url 'homeView' %}"><button class="btn btn-success">Continue Shopping</button></a>
-                            <a href="{% url 'CartApp:checkout' cart.id %}"><button class="btn btn-success">Checkout</button></a>
-                            {% endif %}
-
-                        </td>
-                        
-                    </tr>
+                            
                   </tbody>
             </table>
+            <hr>
         </div>
     </div>
 
     
     {% endif %}
-    
+
+    {% if cart.total > 0 %}  
+    <div class="row">
+        <div class="col">
+            <div class="cartTotal">
+                <h4>Total: <span class="cart_value">&#8377;{{ cart.total }}</span></h4> <hr>
+            </div>            
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="cartFinalButtons">
+                <a href="{% url 'homeView' %}"><button class="loginPageButton">Continue Shopping</button></a>
+                <a href="{% url 'CartApp:checkout' cart.id %}"><button class="loginPageButton">Checkout</button></a>
+            </div>            
+        </div>
+    </div>
+    {% endif %}
     
     
 
