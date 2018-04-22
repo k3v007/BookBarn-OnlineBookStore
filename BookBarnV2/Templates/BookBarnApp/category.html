@@ -8,52 +8,52 @@
         
         <div class="row">
             <div class="col-4">
-                <div class="categoryArea">
-                        <h5>Book Categories</h5> 
-                            <ul>
-                                <li><a href="{% url 'categoryView' gid='G500000002' %}">Fiction</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000000' %}">Classics</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000006' %}">Literature</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000009' %}">Historical</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000010' %}">Cultural</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000016' %}">European Literature</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000012' %}">Non-Fiction</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000011' %}">Fantasy</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000001' %}">Plays</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000014' %}">Philosophy</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000007' %}">Young Adult</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000003' %}">Romance</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000005' %}">Drama</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000004' %}">Academic</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000019' %}">History</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000024' %}">Novels</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000079' %}">Contemporary</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000040' %}">Science Fiction</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000008' %}">Poetry</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000059' %}">Mystery</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000041' %}">Childrens</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000020' %}">Religion</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000015' %}">Humor</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000029' %}">Politics</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000036' %}">Adventure</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000018' %}">Biography</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000055' %}">Horror</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000035' %}">Autobiography</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000039' %}">Short Stories</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000053' %}">Gothic</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000051' %}">Adult</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000025' %}">Writing</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000033' %}">Adult Fiction</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000013' %}">Science</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000083' %}">Thriller</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000071' %}">Paranormal</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000057' %}">Abandoned</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000060' %}">Literary Fiction</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000022' %}">Spirituality</a></li>
-                                <li><a href="{% url 'categoryView' gid='G500000037' %}">War</a></li>
-                            </ul>
-                            <a href="{% url 'categoryListView' %}"><button class="btn btn-success">More</button></a>
-                    </div>
+                <div class="categoryListWrapper">
+                    <h5 class="categoryListHeader">Book Categories</h5> 
+                    <ul class="categoryList">
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000002' %}"><li class="categoryListItem">Fiction</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000000' %}"><li class="categoryListItem">Classics</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000006' %}"><li class="categoryListItem">Literature</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000009' %}"><li class="categoryListItem">Historical</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000010' %}"><li class="categoryListItem">Cultural</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000016' %}"><li class="categoryListItem">European Literature</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000012' %}"><li class="categoryListItem">Non-Fiction</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000011' %}"><li class="categoryListItem">Fantasy</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000001' %}"><li class="categoryListItem">Plays</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000014' %}"><li class="categoryListItem">Philosophy</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000007' %}"><li class="categoryListItem">Young Adult</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000003' %}"><li class="categoryListItem">Romance</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000005' %}"><li class="categoryListItem">Drama</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000004' %}"><li class="categoryListItem">Academic</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000019' %}"><li class="categoryListItem">History</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000024' %}"><li class="categoryListItem">Novels</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000079' %}"><li class="categoryListItem">Contemporary</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000040' %}"><li class="categoryListItem">Science Fiction</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000008' %}"><li class="categoryListItem">Poetry</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000059' %}"><li class="categoryListItem">Mystery</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000041' %}"><li class="categoryListItem">Childrens</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000020' %}"><li class="categoryListItem">Religion</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000015' %}"><li class="categoryListItem">Humor</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000029' %}"><li class="categoryListItem">Politics</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000036' %}"><li class="categoryListItem">Adventure</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000018' %}"><li class="categoryListItem">Biography</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000055' %}"><li class="categoryListItem">Horror</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000035' %}"><li class="categoryListItem">Autobiography</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000039' %}"><li class="categoryListItem">Short Stories</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000053' %}"><li class="categoryListItem">Gothic</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000051' %}"><li class="categoryListItem">Adult</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000025' %}"><li class="categoryListItem">Writing</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000033' %}"><li class="categoryListItem">Adult Fiction</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000013' %}"><li class="categoryListItem">Science</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000083' %}"><li class="categoryListItem">Thriller</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000071' %}"><li class="categoryListItem">Paranormal</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000057' %}"><li class="categoryListItem">Abandoned</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000060' %}"><li class="categoryListItem">Literary Fiction</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000022' %}"><li class="categoryListItem">Spirituality</li></a>
+                        <a class="categoryListLink" href="{% url 'categoryView' gid='G500000037' %}"><li class="categoryListItem">War</li></a>
+                    </ul>
+                    <a href="{% url 'categoryListView' %}"><button class="btn btn-success">More</button></a>
+                </div>
             </div>
 
             <div class="col">

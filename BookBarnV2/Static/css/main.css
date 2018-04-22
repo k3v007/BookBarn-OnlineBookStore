@@ -253,6 +253,7 @@ body {
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
 
 
+/*Wrapper*/
 .categoryListWrapper {
     padding: 0 5px;
     margin: 0 50px 0 0;
@@ -260,17 +261,20 @@ body {
     text-align: center;
 }
 
+/*Header*/
 .categoryListHeader {
     text-align: center;
     margin: 0 0 25px 0;
 }
 
+/*List ul*/
 .categoryList {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
+/*Links a*/
 .categoryListLink {
     color: #333333;
 }
@@ -280,6 +284,7 @@ body {
     text-decoration: none;
 }
 
+/*List items li*/
 .categoryListItem {
     padding: 5px;
     margin: 5px;
@@ -310,4 +315,47 @@ body {
 
 .categoryListWrapperCenter {
     margin: 0 30%;
+}
+
+
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+        /*BookDetails Page*/
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
+/*Left Items*/
+.bookDetailsLeftWrapper {
+/*    background-color: gray;*/
+    margin: 0 10px;
+    padding: 0 5px;
+    text-align: center;
+}
+
+.bookCoverMain {
+    margin: 0 auto;
+    padding: 15px 0;
+}
+
+.tableWrapper {
+    margin: 5px auto;
+}
+
+.addToCartButtonWrapper {
+    
+}
+
+.addToCartButton {
+    margin: 0 auto;
+}
+
+tbody {
+    border-collapse: separate !important;
+    border-radius: 55px;
+}
+
+/*Right Items*/
+.bookDetailsRightWrapper {
+/*    background-color: #cccccc;*/
+    margin: 0 15px;
+    padding: 10px 30px;
 }
