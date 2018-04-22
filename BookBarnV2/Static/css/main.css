@@ -9,12 +9,23 @@ html, body{
 
 body {
     background: #f4f4f4;
-    margin-top: 100px;
-    margin-bottom: 70px;
+
+    background: #ff9966;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ff5e62, #ff9966);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ff5e62, #ff9966); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 * {
     font-family: 'Lato', sans-serif;
+}
+
+.mainContainer {
+    padding: 100px 50px;
+    background: #f4f4f4;
+    -webkit-box-shadow: 0px 0px 108px -16px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 108px -16px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 108px -16px rgba(0,0,0,0.75);
 }
 
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
@@ -24,8 +35,10 @@ body {
 
 /*Navbar*/
 .navBar {
-    padding: 4px 50px;
+    padding: 10px 150px;
     background: #f4f4f4;
+    background: #F4F1EA;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
 }
 
 /*BrandName*/
@@ -63,19 +76,23 @@ body {
 
 .navSearchInput {
     vertical-align: middle;
-    padding: 1px 5px;
+    padding: 3px 5px;
     margin: 0 3px;
     min-width: 250px;
 
     margin-right: 0;
     border-radius: 3px 0 0 3px;
-    background-color: #eeeeee;
+    background-color: #fafafa;
     border: 1px solid #dddddd;
     border-right: 0;
 }
 
+.navSearchInput:focus {
+    background-color: #ffffff;
+}
+
 .navSearchButton {
-    padding: 3px 10px;
+    padding: 5px 10px;
     margin: 0 3px;
     border: none;
 
@@ -225,4 +242,59 @@ body {
     box-shadow: 0px 25px 18px -6px rgba(0, 0, 0,0.2);
     background-color: #63b2fc;
     color: #fff;
+}
+
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+        /*Home Page*/
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
+
+.categoryListWrapper {
+    padding: 30px 5px;
+    margin: 0 50px 0 0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.categoryListHeader {
+    text-align: center;
+    margin: 0 0 25px 0;
+}
+
+.categoryList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.categoryListLink {
+    color: #333333;
+}
+
+.categoryListLink:hover {
+    color: #333333;
+    text-decoration: none;
+}
+
+.categoryListItem {
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    background-color: #dfdfdf;
+
+    transition: margin 0.1s, padding 0.1s;
+    -webkit-transition: margin 0.1s, padding 0.1s;
+    -moz-transition: margin 0.1s, padding 0.1s;
+    -ms-transition: margin 0.1s, padding 0.1s;
+    -o-transition: margin 0.1s, padding 0.1s;
+}
+
+.categoryListItem:hover {
+    padding: 8px;
+    margin: 3px;
+    box-shadow: 0px 5px 3px -1px rgba(0, 0, 0,0.2);
 }
