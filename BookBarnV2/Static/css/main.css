@@ -629,3 +629,42 @@ tbody {
     margin: 10px;
     min-width: 160px;
 }
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+        /*Checkout Page*/
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
+.checkoutModule {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 5px;
+}
+
+.checkoutModule input {
+    margin: 10px;
+    margin-left: 0;
+}
+
+.moduleTitle {
+    padding: 10px;
+}
+
+.default_address {
+    padding: 30px 50px;
+    font-size: 1.1em;
+}
+
+.checkoutFinalButtons {
+    padding: 20px;
+    text-align: center;
+}
+
+.checkoutFinalButtons a button {
+    margin: 0 10px;
+    min-width: 160px;
+}
+
+.checkoutFinalButtons input {
+    margin: 0 10px;
+    min-width: 160px;
+}

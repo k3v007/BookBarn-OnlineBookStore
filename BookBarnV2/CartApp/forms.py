@@ -79,7 +79,6 @@ class NewAddressForm(forms.Form):
                         "class":"form-control required_field_1", 
                         "placeholder":"Phone Number", 
                         "id":"id_phoneNumber",
-                        'style': 'width:50ch',
                         'oninput': 'onlyNumber(id)'
                         }
                     )

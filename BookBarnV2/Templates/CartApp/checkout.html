@@ -15,7 +15,86 @@
 {% endblock %}
 
 {% block body_block %}
+
+
 <div class="container mainContainer">
+    
+    
+
+    <div class="row">
+        <div class="col">
+            <form id="user_form" method="post" action="{% url 'CartApp:checkout' cart.id %}">
+                {% csrf_token %}
+                
+
+                <div class="row">
+                    <div class="col" style="text-align: center;">
+                        <h4>Select Address</h4> <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6" style="min-height: 450px;">
+                        <div class="checkoutModule">
+                            <input type="radio" name="address" value="dft_add"  class="trigger_1" id="radio_default_address" data-rel="default_address" required><span class="moduleTitle">Default Address</span><br>
+                            <div class="default_address radio_content_1">
+                                <span style="white-space: pre-line">{{ address }}</span>
+                            </div> 
+                        </div>                        
+                    </div>
+                    <div class="col-6">
+                        <div class="checkoutModule">
+                            <input type="radio" name="address" value="new_add" class="trigger_1" id="radio_new_address" data-rel="new_address" required><span class="moduleTitle">New Address</span><br>
+                            <div class="new_address radio_content_1">
+                                {{ address_form.as_p}}
+                            </div>
+                        </div>                         
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col" style="text-align: center;">
+                        <h4>Select Payment Type:</h4> <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6" style="min-height: 430px;">
+                        <div class="checkoutModule">
+                            <input type="radio" name="payment" value="cod_pay" class="trigger_2" id="radio_cod" data-rel="cash_on_delivery" required><span class="moduleTitle">Cash on Delivery</span><br>
+                            <div class="cash_on_delivery radio_content_2"></div>
+                        </div>                        
+                    </div>
+                    <div class="col-6">
+                        <div class="checkoutModule">
+                            <input type="radio" name="payment" value="card_pay" class="trigger_2" id="radio_card" data-rel="card_details" required><span class="moduleTitle">Credit Card</span><br>
+                            <div class="card_details radio_content_2">
+                                {{ card_form.as_p}}
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col checkoutFinalButtons">
+                        <input class="loginPageButton" type="submit" name="submit" value="Checkout" />
+                    </div>
+                </div>
+                
+            </form>
+                <div class="row">
+                    <div class="col checkoutFinalButtons">
+                        <a href="{% url 'homeView' %}"><button class="loginPageButton">Cancel</button></a>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+<!-- <div class="container mainContainer">
     <div class="row">
         <div class="col">
             <form id="user_form" method="post" action="{% url 'CartApp:checkout' cart.id %}">
@@ -50,12 +129,12 @@
 <a href="{% url 'homeView' %}"><button class="btn btn-success">Cancel</button></a>
         </div>
     </div>
-</div>
+</div> -->
 
 
 
 
-    
+    <!-- Script Magic -->
     <script type="text/javascript">
         $(document).ready(function(){
             $('.trigger_1').click(function() {
@@ -108,9 +187,6 @@
                 });
             });
         }
-
-        
-
     </script>
 
 {% endblock %}
