@@ -240,7 +240,7 @@ class LoginForm(forms.ModelForm):
             max_length=50,
             widget=forms.PasswordInput( 
                     attrs={
-                        "class":"form-control", 
+                        "class":"form-control password", 
                         "placeholder":"Password", 
                         "id":"id_password",
                         } 

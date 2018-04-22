@@ -8,20 +8,43 @@
 
 
 <div class="container mainContainer">
-	<div class="row">
-		<div class="col loginPageHeading">
-			<h4>Login to BookBarn</h4> <hr>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col loginPageForm">
-			<form id="login_form" method="post" action="{% url 'loginView' %}">
-				{% csrf_token %}
-				{{ form.as_p }}
-				<input class="loginPageButton" type="submit" class="btn btn-success" value="Login" />
-			</form>
-		</div>
-	</div>
+    <div class="row">
+        <div class="col loginPageHeading">
+            <h4>Login to BookBarn</h4> <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+
+            <div class="owl">
+              <div class="hand"></div>
+              <div class="hand hand-r"></div>
+              <div class="arms">
+                <div class="arm"></div>
+                <div class="arm arm-r"></div>
+              </div>
+            </div>
+            
+            <div class="loginFormWrapper loginPageForm">
+                <form id="login_form" method="post" action="{% url 'loginView' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input class="loginPageButton" type="submit" class="btn btn-success" value="Login" />
+                </form>
+            </div>
+            
+        </div>
+    </div>
 </div>
+
+
+<!-- Owl Magic -->
+<script>
+    $('input[type="password"]').on('focus', () => {
+      $('*').addClass('password');
+    }).on('focusout', () => {
+      $('*').removeClass('password');
+    });;
+</script>
 
 {% endblock %}
