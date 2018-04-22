@@ -87,6 +87,27 @@
                 </div>
                 {% endfor %}
 
+
+                <!-- Testing pagination -->
+				<br>
+				<div class="pagination">					
+					<span class="step-links">
+						{% if books.has_previous %}
+							<a href="?page=1">&laquo; First</a>
+							<a href="?page={{ books.previous_page_number }}">Prev</a>
+						{% endif %}
+				
+						<span class="current">
+							Page {{ books.number }} of {{ books.paginator.num_pages }}.
+						</span>
+				
+						{% if books.has_next %}
+							<a href="?page={{ books.next_page_number }}">Next</a>
+							<a href="?page={{ books.paginator.num_pages }}">Last &raquo;</a>
+						{% endif %}
+					</span>
+				</div>
+
             </div>
         </div>
 

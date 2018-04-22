@@ -47,14 +47,17 @@ def bookView(request, isbn):
 
 # To show books in a single category
 def categoryView(request, gid):
-    genre = get_object_or_404(Genres, pk=gid)
-    books = Genres.objects.get(gid=gid).books.all()
-    return render(request, 'BookBarnApp/category.html', {'books':books, 'genre':genre})
+    # genre = get_object_or_404(Genres, pk=gid)
+    books_list = Genres.objects.get(gid=gid).books.all()
+    paginator = Paginator(books_list, 15) # Show 20 books list per page
+    page = request.GET.get('page')
+    books = paginator.get_page(page)
+    return render(request, 'BookBarnApp/category.html', {'books':books})
 
 # To show list of categories
 def categoryListView(request):
     genres = Genres.objects.all()
-    paginator = Paginator(genres, 25) # Show 25 contacts per page
+    paginator = Paginator(genres, 20) # Show 20 genres list per page
     page = request.GET.get('page')
     genres_list = paginator.get_page(page)
     return render(request, 'BookBarnApp/categorylist.html', {'categories':genres_list})

@@ -16,29 +16,29 @@
 			        {% for category in categories %}
 			         <a class="categoryListLink" href="{% url 'categoryView' gid=category.gid %}"><li class="categoryListItem">{{ category.gName }}</li></a>
 			        {% endfor %}
-			    </ul>
-			</div>
-
-			<!-- Testing pagination -->
-			<div class="pagination">
-				<span class="step-links">
-					{% if categories.has_previous %}
-						<a href="?page=1">&laquo; first</a>
-						<a href="?page={{ categories.previous_page_number }}">previous</a>
-					{% endif %}
-			
-					<span class="current">
-						Page {{ categories.number }} of {{ categories.paginator.num_pages }}.
+				</ul>
+				
+				<!-- Testing pagination -->
+				<br>
+				<div class="pagination">					
+					<span class="step-links">
+						{% if categories.has_previous %}
+							<a href="?page=1">&laquo; First</a>
+							<a href="?page={{ categories.previous_page_number }}">Prev</a>
+						{% endif %}
+				
+						<span class="current">
+							Page {{ categories.number }} of {{ categories.paginator.num_pages }}.
+						</span>
+				
+						{% if categories.has_next %}
+							<a href="?page={{ categories.next_page_number }}">Next</a>
+							<a href="?page={{ categories.paginator.num_pages }}">Last &raquo;</a>
+						{% endif %}
 					</span>
-			
-					{% if categories.has_next %}
-						<a href="?page={{ categories.next_page_number }}">next</a>
-						<a href="?page={{ categories.paginator.num_pages }}">last &raquo;</a>
-					{% endif %}
-				</span>
+				</div>
+
 			</div>
-
-
     	</div>
     </div>    
 </div>
