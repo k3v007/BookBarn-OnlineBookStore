@@ -79,9 +79,9 @@
 
                     <div class="row">
                         {% for book in trending %}
-                        <div class="col">
+                        <div class="col-2">
                             <div class="bookCover">
-                                <a href="{{ book.get_absolute_url }}"><img src="{{ book.coverImage }}" alt="Book Cover" class="img-fluid"></a>
+                                    <a href="{{ book.get_absolute_url }}"><img src="{{ book.coverImage }}" alt="Book Cover" class="img-fluid"></a>   
                             </div>
                         </div>
                         {% endfor %}

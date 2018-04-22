@@ -311,6 +311,7 @@ body {
 /*Books Display on Right*/
 .bookShelf {
     padding-bottom: 35px;
+    margin: 0 auto;
 }
 
 
@@ -375,13 +376,15 @@ tbody {
 .bookCover {
     width: 100%;
     height: 100%;
-    padding: 10px 3px;
+    padding: 7px 3px;
+    margin: 3px 0;
     transition: margin 0.1s, padding 0.1s;
-    -webkit-transition: margin 0.1s, padding 0.1s;
-    -moz-transition: margin 0.1s, padding 0.1s;
-    -ms-transition: margin 0.1s, padding 0.1s;
-    -o-transition: margin 0.1s, padding 0.1s;
+    -webkit-transition: all 0.1s;
+    -moz-transition: all 0.1s;
+    -ms-transition: all 0.1s;
+    -o-transition: all 0.1s;
 }
+
 
 .bookCover a img {
     min-width: 100%;
@@ -395,5 +398,7 @@ tbody {
 .bookCover:hover {
     width: 100%;
     height: 100%;
-    padding: 7px 0px;
+    padding: 4px 0px;
+    margin: 3px 0 ;
 }
+
