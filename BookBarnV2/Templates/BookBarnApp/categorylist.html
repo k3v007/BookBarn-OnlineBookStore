@@ -8,13 +8,13 @@
 {% block body_block %}
 
 
-<div class="container">
+<div class="container mainContainer">
     <div class="row">
-    	<div class="col-4">
-    		<div class="categoryArea">
-    			<ul>
+    	<div class="col">
+    		<div class="categoryListWrapper categoryListWrapperCenter">
+    			<ul class="categoryList">
 			        {% for category in categories %}
-			         <li> <a href="{% url 'categoryView' gid=category.gid %}">{{ category.gName }}</a></li>
+			         <a class="categoryListLink" href="{% url 'categoryView' gid=category.gid %}"><li class="categoryListItem">{{ category.gName }}</li></a>
 			        {% endfor %}
 			    </ul>
     		</div>

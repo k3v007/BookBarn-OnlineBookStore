@@ -4,6 +4,7 @@
 html, body{
     margin: 0;
     padding: 0;
+    height: 100%;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -23,6 +24,8 @@ body {
 .mainContainer {
     padding: 100px 50px;
     background: #f4f4f4;
+    min-height: 100%;
+
     -webkit-box-shadow: 0px 0px 108px -16px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 108px -16px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 108px -16px rgba(0,0,0,0.75);
@@ -251,7 +254,7 @@ body {
 
 
 .categoryListWrapper {
-    padding: 30px 5px;
+    padding: 0 5px;
     margin: 0 50px 0 0;
     border-radius: 5px;
     text-align: center;
@@ -294,7 +297,17 @@ body {
 }
 
 .categoryListItem:hover {
-    padding: 8px;
-    margin: 3px;
+    padding: 7px;
+    margin: 4px;
+    margin-bottom: 7px;
     box-shadow: 0px 5px 3px -1px rgba(0, 0, 0,0.2);
+}
+
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+        /*CategoryList Page*/
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
+.categoryListWrapperCenter {
+    margin: 0 30%;
 }
