@@ -8,6 +8,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from CartApp.models import Cart
 # from django.db import connection
 
@@ -52,7 +53,10 @@ def categoryView(request, gid):
 
 # To show list of categories
 def categoryListView(request):
-    genres_list = Genres.objects.all()
+    genres = Genres.objects.all()
+    paginator = Paginator(genres, 25) # Show 25 contacts per page
+    page = request.GET.get('page')
+    genres_list = paginator.get_page(page)
     return render(request, 'BookBarnApp/categorylist.html', {'categories':genres_list})
 
 
