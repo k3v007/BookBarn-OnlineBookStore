@@ -308,6 +308,11 @@ body {
     box-shadow: 0px 5px 3px -1px rgba(0, 0, 0,0.2);
 }
 
+/*Books Display on Right*/
+.bookShelf {
+    padding-bottom: 35px;
+}
+
 
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
         /*CategoryList Page*/
@@ -358,4 +363,37 @@ tbody {
 /*    background-color: #cccccc;*/
     margin: 0 15px;
     padding: 10px 30px;
+}
+
+
+
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+        /*BookCover style*/
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
+.bookCover {
+    width: 100%;
+    height: 100%;
+    padding: 10px 3px;
+    transition: margin 0.1s, padding 0.1s;
+    -webkit-transition: margin 0.1s, padding 0.1s;
+    -moz-transition: margin 0.1s, padding 0.1s;
+    -ms-transition: margin 0.1s, padding 0.1s;
+    -o-transition: margin 0.1s, padding 0.1s;
+}
+
+.bookCover a img {
+    min-width: 100%;
+    min-height: 100%;;
+    border-radius: 3px;
+    -webkit-box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.6);
+    -moz-box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.6);
+    box-shadow: 3px 3px 20px 2px rgba(0,0,0,0.6);
+}
+
+.bookCover:hover {
+    width: 100%;
+    height: 100%;
+    padding: 7px 0px;
 }
