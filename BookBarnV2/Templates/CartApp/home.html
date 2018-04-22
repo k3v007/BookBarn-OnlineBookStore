@@ -98,59 +98,6 @@
     {% endif %}
     
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- <div class="cart_container">
-        {% for item in cartItems %}
-        <div class="cart_item">
-            <div class="searchBookCover">
-                <a href="{{ item.book.get_absolute_url }}"><img src="{{ item.book.coverImage }}" alt="Book Cover" class="img-fluid"></a>
-            </div> 
-            <div class="cart_listing">
-                <a href="{% url 'bookView' item.book.isbn %}">
-                    <span class="title">{{ item.book.bookTitle }}</span> by
-                    {% for auth in item.book.authors.all %}
-                        {{ auth.get_full_name }}
-                    {% endfor %}
-                </a>
-            </div>
-
-            <div class="cart_price">
-                <span class="cart_quantity">{{ item.quantity }} x &#8377;<span class="cart_value">{{ item.book.price }}</span> </span>
-            
-                Quantity:
-                
-                <a href="{% url 'CartApp:add_to_cart' item.book.isbn %}"><button>[+]</button></a>
-                
-                <button>{{ item.quantity }}</button>
-                
-                <a href="{% url 'CartApp:remove_from_cart' item.book.isbn %}"><button>[-]</button></a>
-            </div>
-        </div>
-       {% endfor %}
-       
-       {% if cart.total > 0 %}     
-           <div class="cart_total">
-                <h4>Total: <span class="cart_value">&#8377;{{ cart.total }}</span></h4>
-            </div>
-        <a href="{% url 'homeView' %}"><button class="btn btn-success">Continue Shopping</button></a>
-        <a href="{% url 'CartApp:checkout' cart.id %}"><button class="btn btn-success">Checkout</button></a>
-        {% endif %}
-      </div> -->
 </div>
 
 {% endblock %}

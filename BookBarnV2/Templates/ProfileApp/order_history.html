@@ -6,43 +6,38 @@
 
 {% block body_block %}
 
-<div class="container mainContainer">
-  <div style="text-align: center;">
-      <h4>Your Order History</h4> <hr>
-  </div>
-  <div class="cart_container">
 
-   <!-- Html codes are copy paste from cartApp:home.html so change all classes according to your need -->
-   {% for cart in carts %}
-   
-      <div class="cart_item">
-        <div class="cart_listing">
-            <h4>Order ID : {{ cart.id }}</h4>
+<div class="container mainContainer">
+    <div class="row">
+        <div class="col" style="text-align:center">
+            <h4>Your Order History</h4><hr>
         </div>
-        <div>
-            <h6>{{ cart.order_date }}</h6>
+    </div>
+    {% for cart in carts %}
+    <div class="row">
+        <div class="col-6 orderDetails">
+            <h5><span class="detailBold">Order ID : {{ cart.id }}</span></h5>
+            <h6><span class="detailBold">on</span> {{ cart.order_date }}</h6>
+            <h6><span class="detailBold">Amount Paid:</span> &#8377;{{ cart.total }}</h6>
+            <h6><span class="detailBold">Payment Type:</span> {{ cart.payment_style }}</h6>
         </div>
-        <div>
-            <h6>&#8377;{{ cart.total }}</h6>
-        </div>
-        <div>
-            <h6>{{ cart.payment_style }}</h6>
-        </div>
-        <div>
+        <div class="col-6 orderDetails">
+            <h6><span class="detailBold"><span class="detailBold">Delivery Address:</span></h6>
             <h6><span style='white-space:pre-line'>{{ cart.delivery_address }}</span></h6>
-        </div>
-        <div>
+
             <a href="{% url 'ProfileApp:orderDetailsView' cart.id %}">
                 <h6>Click here for Details</h6>
             </a>
         </div>
-      </div>    
-   {% empty %}
-      <div>
-          No Purchase history!
+    </div>
+    <hr>
+    {% empty %}
+      <div class="row">
+        <div class="col">
+            <h6>No Purchase history!</h6>
+        </div>          
       </div>
-   {% endfor %}
-  </div>
+    {% endfor %}
 </div>
 
 {% endblock %}

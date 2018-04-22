@@ -13,48 +13,52 @@
     <div class="row">
         <div class="col bookDetailsLeftWrapper">
             
-                <div class="row bookCoverMain">  
-                        <img class="img-fluid" src="{{ book.coverImage }}" alt="Cover">
+                <div class="row">
+                <div class="col bookCoverMain">
+                    <img class="img-fluid" src="{{ book.coverImage }}" alt="Cover">
+                </div>  
                 </div>
 
                 <div class="row tableWrapper">
-                    
-                    <table class="table table-striped">
-                        <tbody>
-                            <tr class="table-primary">
-                                <th scope="row">Rating:</th>
-                                <td>
-                                    <div class="star-ratings-sprite">
-                                        <span style="width:{{ rating_percent }}%" class="star-ratings-sprite-rating"></span>
-                                    </div>
-                                </td>                            
-                            </tr>
-                            <tr class="table-primary">
-                                <th scope="row">Price:</th>
-                                <td>&#8377; {{ book.price }}</td>               
-                            </tr>
-                        </tbody>
-                    </table>
-
+                    <div class="col">
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr class="table-primary">
+                                    <th scope="row">Rating:</th>
+                                    <td>
+                                        <div class="star-ratings-sprite">
+                                            <span style="width:{{ rating_percent }}%" class="star-ratings-sprite-rating"></span>
+                                        </div>
+                                    </td>                            
+                                </tr>
+                                <tr class="table-primary">
+                                    <th scope="row">Price:</th>
+                                    <td>&#8377; {{ book.price }}</td>               
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 
                 <div class="row">
                     <div class="col addToCartButtonWrapper">
                         {% if book.booksCount == 0 %}
-                            <button class="navButton addToCartButton">[Out of Stock]</button>
+                            <button class="loginPageButton addToCartButton" style="width: 100%">[Out of Stock]</button>
                         {% else %}
                             {% if request.user.is_authenticated %}
-                                <!-- This way disable superuser and staff access -->
+                                <!-- This way block superuser's access -->
                                 {% if not request.user.is_superuser and not request.user.is_staff %}
-                                    <a class="navLoginLink addToCartButton" href="{% url 'CartApp:add_to_cart' book.isbn %}">
+                                    <a class="navLoginLink addToCartButton" href="{% url 'CartApp:add_to_cart' book.isbn %}"><button class="loginPageButton" style="width: 100%">Add to Cart</button>
+                                    </a>
                                 {% else %}
-                                    <a class="addToCartButton" href="#">
+                                    <a class="addToCartButton" href="#"><button class="loginPageButton" style="width: 100%">Add to Cart</button>
+                                    </a>
                                 {% endif %}
                             {% else %}
-                                <a class="navLoginLink addToCartButton" href="{% url 'loginView' %}">
-                            {% endif %}
-                                    <button class="navButton">Add to Cart</button>
+                                <a class="navLoginLink addToCartButton" href="{% url 'loginView' %}"><button class="loginPageButton" style="width: 100%">Add to Cart</button>
                                 </a>
+                            {% endif %}
+                
                         {% endif %}
                     </div>                                       
                 </div>
@@ -64,41 +68,48 @@
         <div class="col-8 bookDetailsRightWrapper">
 
                 <div class="row">
-                    <h3>{{ book.bookTitle }}</h3>
-                    <hr>
+                    <div class="col">
+                        <h3>{{ book.bookTitle }}</h3><hr>
+                    </div>                    
                 </div>
                 <div class="row">
-                    <h4>Description: </h4>
+                    <div class="col">
+                        <h4>Description: </h4>                        
+                    </div>
                 </div>
                 <div class="row">
-                    <!-- Use this pre-line styling for printing '\n' in html file -->
-                    <p><span style="white-space: pre-line">{{ book.description }}</span></p>
+                    <div class="col">
+                        <!-- Use this pre-line styling for printing '\n' in html file -->
+                        <p><span style="white-space: pre-line">{{ book.description }}</span></p>
+                    </div>                    
                 </div>
                 <div class="row">
-                    <table class="table table-striped">
-                      <tbody>
-                        <tr>
-                          <th scope="row">ISBN:</th>
-                          <td >{{ book.isbn }}</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">Language:</th>
-                          <td>{{ book.language }}</td>                    
-                        </tr>
-                        <tr>
-                          <th scope="row">No. of Pages:</th>
-                          <td>{{ book.pageCount }}</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">Published On:</th>
-                          <td>{{ book.publishedDate }}</td>
-                        </tr> 
-                        <tr>
-                          <th scope="row">Books in Stock:</th>
-                          <td>{{ book.booksCount }}</td>
-                        </tr>            
-                      </tbody>
-                    </table>        
+                    <div class="col">
+                        <table class="table table-striped">
+                          <tbody>
+                            <tr>
+                              <th scope="row">ISBN:</th>
+                              <td >{{ book.isbn }}</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Language:</th>
+                              <td>{{ book.language }}</td>                    
+                            </tr>
+                            <tr>
+                              <th scope="row">No. of Pages:</th>
+                              <td>{{ book.pageCount }}</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Published On:</th>
+                              <td>{{ book.publishedDate }}</td>
+                            </tr> 
+                            <tr>
+                              <th scope="row">Books in Stock:</th>
+                              <td>{{ book.booksCount }}</td>
+                            </tr>            
+                          </tbody>
+                        </table> 
+                    </div>                           
                 </div>            
         </div>
     </div>
