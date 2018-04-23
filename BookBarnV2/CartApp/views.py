@@ -30,6 +30,7 @@ def add_to_cart(request, isbn):
                     cart.add_to_cart(isbn)
                     book.booksCount -= 1
                     book.save()
+        return redirect('CartApp:cartHomeView')        
     else:
         return redirect('homeView')
 
