@@ -49,6 +49,7 @@ class UserProfileUpdateForm(forms.ModelForm):
                     attrs={
                         "class":"form-control",
                         "id":"id_phoneNumber",
+                        'oninput': 'onlyNumber(id)',
                         }
                     )
             )
@@ -110,7 +111,8 @@ class UserProfileUpdateForm(forms.ModelForm):
                     attrs={
                         "class":"form-control",
                         "id":"id_pincode",
-                        'autocomplete': 'off'
+                        'autocomplete': 'off',
+                        'oninput': 'onlyNumber(id)',
                         }
                     )
             )

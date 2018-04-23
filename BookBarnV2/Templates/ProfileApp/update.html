@@ -3,6 +3,15 @@
 
 {% block head_block %}
 
+    <!-- This is the working script which allow only numbers
+    Find a suitable place to keep it -->    
+    <script type="text/javascript">
+        function onlyNumber(id){ 
+            var DataVal = document.getElementById(id).value;
+            document.getElementById(id).value = DataVal.replace(/[^0-9]/g,'');
+        }
+    </script>
+
 {% endblock %}
 
 
