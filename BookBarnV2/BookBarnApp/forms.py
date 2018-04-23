@@ -124,6 +124,7 @@ class UserProfileSignupForm(forms.ModelForm):
                         "class":"form-control", 
                         "placeholder":"Phone Number", 
                         "id":"id_phoneNumber",
+                        'oninput': 'onlyNumber(id)',
                         }
                     )
             )
@@ -205,7 +206,8 @@ class UserProfileSignupForm(forms.ModelForm):
                         "placeholder":"PIN Code", 
                         "id":"id_pincode",
                         'pattern':'[0-9]+',
-                        'autocomplete': 'off'
+                        'autocomplete': 'off',
+                        'oninput': 'onlyNumber(id)'
                         }
                     )
             )
