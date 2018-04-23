@@ -63,7 +63,10 @@ class NewAddressForm(forms.Form):
                     attrs={
                         "class":"form-control required_field_1", 
                         "placeholder":"PIN Code", 
+                        "minlength": "6",
                         "id":"id_pincode",
+                        'pattern':'[0-9]+',
+                        'autocomplete': 'off',
                         'oninput': 'onlyNumber(id)'
                         }
                     )

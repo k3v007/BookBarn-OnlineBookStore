@@ -30,7 +30,6 @@ def add_to_cart(request, isbn):
                     cart.add_to_cart(isbn)
                     book.booksCount -= 1
                     book.save()
-        return redirect('CartApp:cartHomeView')
     else:
         return redirect('homeView')
 
@@ -101,7 +100,9 @@ def checkout(request, cart_id):
                         pinCode = new_address_form.cleaned_data['pinCode']
                         address = address1 + ', ' + address2 + '\n' + city + '\n' + state + ' - ' + pinCode
                         # Saving to the model
-                        cart.delivery_address = address               
+                        cart.delivery_address = address
+                    else: print(new_address_form.errors)
+
                 else:
                     cart.delivery_address = default_address
 
