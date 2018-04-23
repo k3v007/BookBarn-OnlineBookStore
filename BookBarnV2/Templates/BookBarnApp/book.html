@@ -68,21 +68,21 @@
         </div>
 
         <div class="col-8 bookDetailsRightWrapper">
-
                 <div class="row">
                     <div class="col">
-                        <h3>{{ book.bookTitle }}</h3><hr>
+                        <h3><strong>{{ book.bookTitle }}</strong></h3>
+                        <span style="list-style-type:none; font-size:100%;">by{% for author in book.authors.all %} {{ author.get_full_name }} {% endfor %}</span><hr>
                     </div>                    
                 </div>
                 <div class="row">
                     <div class="col">
-                        <h4>Description: </h4>                        
+                        <h5><strong><em>Description: </em></strong></h5>                        
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <!-- Use this pre-line styling for printing '\n' in html file -->
-                        <p><span style="white-space: pre-line">{{ book.description }}</span></p>
+                        <p><span style="white-space: pre-line; font-size:95%;">{{ book.description }}</span></p>
                     </div>                    
                 </div>
                 <div class="row">
@@ -104,11 +104,29 @@
                             <tr>
                               <th scope="row">Published On:</th>
                               <td>{{ book.publishedDate }}</td>
-                            </tr> 
+                            </tr>
+                            <tr>
+                              <th scope="row">Publisher:</th>
+                              <td>{{ book.publisher.pName }}</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Book Format:</th>
+                              <td>{{ book.bookFormat }}</td>
+                            </tr>
                             <tr>
                               <th scope="row">Books in Stock:</th>
                               <td>{{ book.booksCount }}</td>
-                            </tr>            
+                            </tr>
+                            <tr>
+                              <th scope="row">Genres:</th>
+                              <td></td>
+                            </tr>       
+                            {% for genre in book.genres.all%}   
+                            <tr>
+                              <th scope="row"></th>
+                              <td><a href="{% url 'categoryView' gid=genre.gid %}">{{ genre.gName }}</a></td>
+                            </tr>
+                            {% endfor %}     
                           </tbody>
                         </table> 
                     </div>                           

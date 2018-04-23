@@ -57,7 +57,7 @@ def updatePasswordView(request):
 
 def orderHistoryView(request):
     if request.user.is_authenticated:
-        carts = Cart.objects.filter(user=request.user.id, active=False)
+        carts = Cart.objects.filter(user=request.user.id, active=False).order_by('-order_date')
         return render(request, 'ProfileApp/order_history.html', {'carts':carts})
     else:
         return redirect('homeView')
